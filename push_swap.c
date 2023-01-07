@@ -23,24 +23,25 @@
 //small list
 //medium list
 //big list
-//XXL list
+//XXL list?
 #include "../includes/push_swap.h"
 
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int	i;
+	int	list_length;
 
-	a = 
+	a = NULL;
 	b = NULL;
-	if (argc > 3 && argc < 8)
-
-	if (argc > 7 && argc < 101)
-
-	if (argc > 100 && argc < 501)
-
-
-
-
+	if (create_stack_a(argc, argv, &a) == false)
+	{
+		ft_printf("Error!");
+		free_stack(a);
+		return(0);
+	}
+	list_length = list_size(a);
+	speed_is_life(&a, &b, list_length);
+	free_stack(&a);
+	free_stack(&b);
 }
