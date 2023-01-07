@@ -22,6 +22,15 @@ typedef struct s_stack
 
 //if there is and the provided list is correct then create stack a
 bool	create_stack_a(int argc, char **argv, t_stack **a);
+void	raw_input(int argc, char **argv, t_stack **a);
+void	add_back(t_stack **lst, t_stack *new);
+t_stack	*lstnew(int value);
+long	ft_atol(char *str);
+void	invalid_char_check(char *str);
+void	valid_int(long res);
+int	ft_isdigit(int c);
+size_t	ft_strlen(const char *s);
+void print(t_stack **a);
 
 //pick a sorting method based on the size of the provided list
 void	speed_is_life(t_stack **a, t_stack **b, int length);
@@ -34,7 +43,7 @@ void	sort_3(t_stack **a);
 void	sort_up_to_10(t_stack **a, t_stack **b, int legnth);
 int		get_smallest_number(t_stack **number);
 int		get_min_position(t_stack **number, int min);
-
+bool	in_order(t_stack **a);
 
 
 
@@ -71,4 +80,5 @@ void	rrr(t_stack **a, t_stack **b);
 
 //utils
 int	list_size(t_stack *a);
+void	free_stack(t_stack **number);
 #endif

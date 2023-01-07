@@ -24,24 +24,51 @@
 //medium list
 //big list
 //XXL list?
-#include "../includes/push_swap.h"
+#include "includes/push_swap.h"
 
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	int	list_length;
+	int i;
 
+	i = 0;
 	a = NULL;
 	b = NULL;
-	if (create_stack_a(argc, argv, &a) == false)
+	if (create_stack_a(argc, argv, &a) == 1)
 	{
-		ft_printf("Error!");
-		free_stack(a);
+		printf("Error!");
+		free_stack(&a);
 		return(0);
 	}
+	print(&a);
+	printf("\n");
 	list_length = list_size(a);
 	speed_is_life(&a, &b, list_length);
+	print(&a);
 	free_stack(&a);
 	free_stack(&b);
+	return(0);
+}
+
+void	speed_is_life(t_stack **a, t_stack **b, int length)
+{
+	if (length > 2 && length <= 10)
+		sort_small(a, b, length);
+	// if (length > 10 && length <= 100)
+	// 	sort_medium(a, b, length);
+	// if (length > 100 && length <= 500)
+	// 	sort_big(a, b, length);
+	// if (length > 500)
+	// 	sort_xxl(a, b, length);
+}
+
+void print(t_stack **a)
+{
+    t_stack *asd = *a;
+   	while ( asd != NULL) {
+        printf("%d\n", asd->number);
+        asd = asd->next;
+    }
 }

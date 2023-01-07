@@ -1,4 +1,4 @@
-#include "../includes/push_swap.h"
+#include "includes/push_swap.h"
 
 void	sort_small(t_stack **a, t_stack **b, int length)
 {
@@ -52,5 +52,46 @@ void	sort_up_to_10(t_stack **a, t_stack **b, int length)
 		min = get_smallest_number(a);
 		mid = length / 2;
 		position = get_min_position(a, min);
+		while (position != 0)
+		{
+			if (position <= mid)
+				ra(a);
+			else if (position > mid)
+				rra(a);
+			if (in_order(a) == true)
+				return ;
+			position = get_min_position(a, min);
+		}
+		pb(a, b);
+		length--;
 	}
+}
+
+int	get_min_position(t_stack **number, int position)
+{
+	int i;
+
+	if(!*number)
+		return(0);
+	i = 0;
+	while (*number != NULL && i != position)
+	{
+		*number = (*number)->next;
+		i++;
+	}
+	return(1);
+}
+
+int	get_smallest_number(t_stack **number)
+{
+	int	min;
+
+	min = (*number)->number;
+	while ((*number) != NULL)
+	{
+		if ((*number)->number < min)
+			min = (*number)->number;
+		(*number) = (*number)->next;
+	}
+	return(min);
 }
