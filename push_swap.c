@@ -19,21 +19,25 @@
 // rrr : rra and rrb at the same time.
 
 
-//mini list
-//small list
-//medium list
-//big list
-//XXL list?
+//small list up to 5
+	//mini list 2 & 3
+//medium list up to 100
+//big list up to 500
+//XXL list? over 500
 #include "includes/push_swap.h"
 
+/*
+create stack A from the input
+choose the sorting method based on the length of the list
+sort the list with the choosen method
+free both stacks
+*/
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	int	list_length;
-	int i;
 
-	i = 0;
 	a = NULL;
 	b = NULL;
 	if (create_stack_a(argc, argv, &a) == 1)
@@ -42,8 +46,6 @@ int	main(int argc, char **argv)
 		free_stack(&a);
 		return(0);
 	}
-	print(&a);
-	printf("\n");
 	list_length = list_size(a);
 	speed_is_life(&a, &b, list_length);
 	print(&a);
@@ -52,11 +54,18 @@ int	main(int argc, char **argv)
 	return(0);
 }
 
+/*
+to choose the sorting method, because speed is life
+2, 3 or 5
+5 - 100
+100 - 500
+500 <
+*/
 void	speed_is_life(t_stack **a, t_stack **b, int length)
 {
-	if (length > 2 && length <= 10)
+	if (length > 1 && length < 6)
 		sort_small(a, b, length);
-	// if (length > 10 && length <= 100)
+	// if (length > 5 && length <= 100)
 	// 	sort_medium(a, b, length);
 	// if (length > 100 && length <= 500)
 	// 	sort_big(a, b, length);
@@ -64,11 +73,11 @@ void	speed_is_life(t_stack **a, t_stack **b, int length)
 	// 	sort_xxl(a, b, length);
 }
 
-void print(t_stack **a)
+void	print(t_stack **number)
 {
-    t_stack *asd = *a;
+    t_stack *asd = *number;
    	while ( asd != NULL) {
-        printf("%d\n", asd->number);
+        printf("%d ", asd->number);
         asd = asd->next;
     }
 }

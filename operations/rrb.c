@@ -21,4 +21,5 @@ void	rrb(t_stack **b)
 		end->next= NULL;
 	}
 	*b = start;
+	write(1, "rrb\n", 4);
 }

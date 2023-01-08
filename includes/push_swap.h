@@ -2,9 +2,6 @@
 # define PUSH_SWAP_H
 # define INT_MAX "2147483647"
 # define INT_MIN "-2147483647"
-
-
-
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -15,6 +12,7 @@
 typedef struct s_stack
 {
 	int	number;
+	struct s_stack *index;
 	struct s_stack	*next;
 	// t_stack *a;
 	// t_stack *b;
@@ -25,12 +23,7 @@ bool	create_stack_a(int argc, char **argv, t_stack **a);
 void	raw_input(int argc, char **argv, t_stack **a);
 void	add_back(t_stack **lst, t_stack *new);
 t_stack	*lstnew(int value);
-long	ft_atol(char *str);
-void	invalid_char_check(char *str);
-void	valid_int(long res);
-int	ft_isdigit(int c);
-size_t	ft_strlen(const char *s);
-void print(t_stack **a);
+void print(t_stack **number);
 
 //pick a sorting method based on the size of the provided list
 void	speed_is_life(t_stack **a, t_stack **b, int length);
@@ -40,17 +33,20 @@ bool	list_size_check(int length);
 bool	is_small(int length);
 void	sort_small(t_stack **a, t_stack **b, int length);
 void	sort_3(t_stack **a);
-void	sort_up_to_10(t_stack **a, t_stack **b, int legnth);
-int		get_smallest_number(t_stack **number);
-int		get_min_position(t_stack **number, int min);
-bool	in_order(t_stack **a);
+void	sort_5(t_stack **a, t_stack **b, int legnth);
+int		get_smallest_number(t_stack *number);
+int		get_min_position(t_stack *number, int min);
+bool	in_order(t_stack *number);
+int	get_mid_element(int size);
+void	pb_to_a(t_stack **a, t_stack **b);
 
 
-
+ 
 
 //medium list
 bool	is_medium(int length);
 void	sort_medium(t_stack **a, t_stack **b, int length);
+int	get_biggest_number(t_stack *number);
 //big list
 bool	is_big(int length);
 void	sort_big(t_stack **a, t_stack **b, int length);

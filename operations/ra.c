@@ -12,4 +12,5 @@ void	ra(t_stack **a)
 	*a = (*a)->next;
 	(*a)->next = NULL;
 	*a = head;
+	write(1, "ra\n", 3);
 }

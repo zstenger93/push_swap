@@ -10,4 +10,5 @@ void	pa(t_stack **a, t_stack **b)
 	(*b)->next = *a;
 	*a = *b;
 	*b = temp_b;
+	write(1, "pa\n", 3);
 }

@@ -10,4 +10,5 @@ void	sa(t_stack **number)
 	*number = (*number)->next;
 	temp->next = (*number)->next;
 	(*number)->next = temp;
+	write(1, "sa\n", 3);
 }

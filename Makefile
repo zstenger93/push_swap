@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/07 20:45:14 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/08 17:05:48 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,19 +18,20 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c sort_small.c pw_utils.c operations/sa.c operations/sb.c \
 		operations/ss.c operations/pa.c operations/pb.c operations/ra.c \
 		operations/rb.c operations/rra.c operations/rrb.c operations/rrr.c \
-		operations/rr.c create_stack_a.c
+		operations/rr.c create_stack_a.c sort_medium.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME):$(OBJS) $(LIBFT)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(LIBFT)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
+	git submodule update --init --recursive --remote
 	make -C ./libft
 
 clean:

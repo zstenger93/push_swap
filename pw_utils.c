@@ -1,5 +1,6 @@
 #include "includes/push_swap.h"
 
+//get the length of the list
 int list_size(t_stack *a)
 {
 	int length;
@@ -14,17 +15,21 @@ int list_size(t_stack *a)
 	return(length);
 }
 
-bool	in_order(t_stack **a)
+//check if the list is in the correct order
+bool	in_order(t_stack *number)
 {
-	while((*a)->next != NULL)
+	if (!number->next)
+		return(1);
+	while(number->next != NULL)
 	{
-		if ((*a)->number > (*a)->next->number)
+		if (number->number > number->next->number)
 			return(1);
-		(*a) = (*a)->next;
+		number = number->next;
 	}
 	return(0);
 }
 
+//free the stacks? mAyBeEe
 void	free_stack(t_stack **number)
 {
 	t_stack *temp;
@@ -40,6 +45,7 @@ void	free_stack(t_stack **number)
 	*number = NULL;
 }
 
+//add a node at the end of the list
 void	add_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*tmp;
@@ -57,6 +63,7 @@ void	add_back(t_stack **lst, t_stack *new)
 	tmp->next = new;
 }
 
+//create a new node for the list
 t_stack	*lstnew(int value)
 {
 	t_stack	*result;
@@ -69,74 +76,14 @@ t_stack	*lstnew(int value)
 	return (result);
 }
 
-long	ft_atol(char *str)
-{
-	int		i;
-	long	sign;
-	long	res;
+// get the mid element of the list, set it 1 step closer to the start
+// int	get_mid_element(int size)
+// {
+// 	int	mid;
 
-	i = 0;
-	sign = 1;
-	res = 0;
-	if (str[0] == '\0')
-		return(1);
-	if (str[i] == '-')
-	{
-		sign *= (-1);
-		i++;
-	}
-	while (str[i] != '\0')
-	{
-		res = (str[i] - '0') + (res * 10);
-		i++;
-	}
-	res = res * sign;
-	invalid_char_check(str);
-	valid_int(res);
-	return (res);
-}
-
-void	invalid_char_check(char *str)
-{
-	int	i;
-
-	if (ft_strlen(str) > 11)
-		return ;
-	i = 0;
-	if (str[0] == '\0')
-		return ;
-	if (str[i] == '-')
-		i++;
-	if (str[0] == '-' && str[1] == '\0')
-		return ;
-	while (str[i] != '\0')
-	{
-		if (!ft_isdigit(str[i]))
-			return ;
-		i++;
-	}
-}
-
-void	valid_int(long res)
-{
-	if (res < INT_MIN || res > INT_MAX)
-		return ;
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
+// 	if (size % 2 == 0)
+// 		mid = (size / 2) + 1;
+// 	else
+// 		mid = (size / 2);
+// 	return(mid);
+// }

@@ -21,4 +21,5 @@ void	rra(t_stack **a)
 		end->next= NULL;
 	}
 	*a = start;
+	write(1, "rra\n", 4);
 }

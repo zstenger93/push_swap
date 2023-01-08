@@ -10,4 +10,5 @@ void	sb(t_stack **number)
 	*number = (*number)->next;
 	temp->next = (*number)->next;
 	(*number)->next = temp;
+	write(1, "sb\n", 3);
 }

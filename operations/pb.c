@@ -10,4 +10,5 @@ void	pb(t_stack **a, t_stack **b)
 	(*a)->next = *b;
 	*b = *a;
 	*a = temp_a;
+	write(1, "pb\n", 3);
 }
