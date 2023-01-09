@@ -12,48 +12,38 @@
 typedef struct s_stack
 {
 	int	number;
-	struct s_stack *index;
 	struct s_stack	*next;
-	// t_stack *a;
-	// t_stack *b;
 }t_stack;
 
-//if there is and the provided list is correct then create stack a
+typedef struct s_chunk
+{
+	struct s_stack	*start;
+	struct s_stack	*end;
+}t_chunk;
+
+//if there is and the provided list is correct then create stack A
 bool	create_stack_a(int argc, char **argv, t_stack **a);
 void	raw_input(int argc, char **argv, t_stack **a);
 void	add_back(t_stack **lst, t_stack *new);
 t_stack	*lstnew(int value);
-void print(t_stack **number);
 
 //pick a sorting method based on the size of the provided list
 void	speed_is_life(t_stack **a, t_stack **b, int length);
-//sizecheck
-bool	list_size_check(int length);
+
 //small list
-bool	is_small(int length);
 void	sort_small(t_stack **a, t_stack **b, int length);
 void	sort_3(t_stack **a);
 void	sort_5(t_stack **a, t_stack **b, int legnth);
-int		get_smallest_number(t_stack *number);
-int		get_min_position(t_stack *number, int min);
-bool	in_order(t_stack *number);
-int	get_mid_element(int size);
-void	pb_to_a(t_stack **a, t_stack **b);
-
-
- 
 
 //medium list
-bool	is_medium(int length);
 void	sort_medium(t_stack **a, t_stack **b, int length);
-int	get_biggest_number(t_stack *number);
+//choose the amount of chuck's, I mean chunks
+int		chunk_norris(int length);
+
 //big list
-bool	is_big(int length);
 void	sort_big(t_stack **a, t_stack **b, int length);
 //bigger list
-bool	is_xxl(int length);
 void	sort_xxl(t_stack **a, t_stack **b, int length);
-
 
 //swap the first 2 elements on the top of a or b
 void	sa(t_stack **number);
@@ -74,7 +64,18 @@ void	rra(t_stack **number);
 void	rrb(t_stack **number);
 void	rrr(t_stack **a, t_stack **b);
 
+//utils for sorting
+void	pb_to_a(t_stack **a, t_stack **b);
+
 //utils
-int	list_size(t_stack *a);
+int		list_size(t_stack *a);
 void	free_stack(t_stack **number);
+int		get_biggest_number(t_stack *number);
+int		get_smallest_number(t_stack *number);
+int		get_min_position(t_stack *number, int min);
+int		get_mid_element(int size);
+bool	in_order(t_stack *number);
+void	print(t_stack **number);
+
+
 #endif
