@@ -30,8 +30,8 @@ void	raw_input(int argc, char **argv, t_stack **a)
 	while (i < argc)
 	{
 		nbr = ft_atol(argv[i]);
-		temp = lstnew(nbr);
-		add_back(a, temp);
+		temp = create_new_node(nbr);
+		add_to_end_of_list(a, temp);
 		i++;
 	}
 }

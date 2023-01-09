@@ -41,16 +41,13 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (create_stack_a(argc, argv, &a) == 1)
-	{
-		printf("Error!");
-		free_stack(&a);
-		return(0);
-	}
+		error(&a, &b);
 	list_length = list_size(a);
 	speed_is_life(&a, &b, list_length);
-	print(&a);
+	print_result(&a);
 	free_stack(&a);
 	free_stack(&b);
+	// system("leaks push_swap");
 	return(0);
 }
 
@@ -64,20 +61,7 @@ to choose the sorting method, because speed is life
 void	speed_is_life(t_stack **a, t_stack **b, int length)
 {
 	if (length > 1 && length < 6)
-		sort_small(a, b, length);
-	// if (length > 5 && length <= 100)
-	// 	sort_medium(a, b, length);
-	// if (length > 100 && length <= 500)
-	// 	sort_big(a, b, length);
-	// if (length > 500)
-	// 	sort_xxl(a, b, length);
-}
-
-void	print(t_stack **number)
-{
-    t_stack *asd = *number;
-   	while ( asd != NULL) {
-        printf("%d ", asd->number);
-        asd = asd->next;
-    }
+		sort_smaller(a, b, length);
+	if (length > 5)
+		sort_bigger(a, b, length);
 }

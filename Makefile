@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/08 17:05:48 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/09 19:54:04 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,11 @@ CC = gcc
 RM = rm -rf
 LIBFT = libft/libft.a
 CFLAGS = -Wall -Wextra -Werror
-SRCS = push_swap.c sort_small.c pw_utils.c operations/sa.c operations/sb.c \
+SRCS = push_swap.c sort_smaller.c basic_utils.c operations/sa.c operations/sb.c \
 		operations/ss.c operations/pa.c operations/pb.c operations/ra.c \
 		operations/rb.c operations/rra.c operations/rrb.c operations/rrr.c \
-		operations/rr.c create_stack_a.c sort_medium.c
+		operations/rr.c create_stack_a.c sort_utils.c error.c chunk_operations.c \
+		sort_bigger.c stack_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

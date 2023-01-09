@@ -7,9 +7,9 @@ check if the numbers are in the right order if so return
 3 < numbers < 6 -> sort_5
 push back from B the 2 smallest to A
 */
-void	sort_small(t_stack **a, t_stack **b, int length)
+void	sort_smaller(t_stack **a, t_stack **b, int length)
 {
-	if(in_order(*a) == 0)
+	if(list_is_in_order(*a) == 0)
 		return ;
 	if (length == 2)
 	{
@@ -18,7 +18,7 @@ void	sort_small(t_stack **a, t_stack **b, int length)
 	}
 	if (length > 3 && length < 6)
 		sort_5(a, b, length);
-	if (in_order(*a) == 1)
+	if (list_is_in_order(*a) == 1)
 		sort_3(a);
 	pb_to_a(a, b);
 	
@@ -70,53 +70,10 @@ void	sort_5(t_stack **a, t_stack **b, int length)
 			if (position <= mid)
 				ra(a);
 			else if (position > mid)
-				rra(a);	
-			// if (in_order(*a) == 0)
-			// 	return ;
+				rra(a);
 			position = get_min_position(*a, min);
 		}
 		pb(a, b);
 		length--;
 	}
-}
-
-/*
-get the position of the min number on the list
-*/
-int	get_min_position(t_stack *number, int position)
-{
-	int pos;
-
-	if(!number)
-		return(1);
-	pos = 1;
-	while (number != NULL)
-	{
-		if (number->number == position)
-			return(pos);
-		number = number->next;
-		pos++;
-	}
-	return(1);
-}
-
-//find the smallest number on the list
-int	get_smallest_number(t_stack *number)
-{
-	int	min;
-
-	min = number->number;
-	while (number != NULL)
-	{
-		if (number->number < min)
-			min = number->number;
-		number = number->next;
-	}
-	return(min);
-}
-
-void	pb_to_a(t_stack **a, t_stack **b)
-{
-	while (*b != NULL)
-		pa(a, b);
 }

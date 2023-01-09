@@ -16,7 +16,7 @@ int list_size(t_stack *a)
 }
 
 //check if the list is in the correct order
-bool	in_order(t_stack *number)
+bool	list_is_in_order(t_stack *number)
 {
 	if (!number->next)
 		return(1);
@@ -46,25 +46,25 @@ void	free_stack(t_stack **number)
 }
 
 //add a node at the end of the list
-void	add_back(t_stack **lst, t_stack *new)
+void	add_to_end_of_list(t_stack **list, t_stack *new_node)
 {
-	t_stack	*tmp;
+	t_stack	*temp;
 
-	if (!new)
+	if (!new_node)
 		return ;
-	if (!*lst)
+	if (!*list)
 	{
-		*lst = new;
+		*list = new_node;
 		return ;
 	}
-	tmp = *lst;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	tmp->next = new;
+	temp = *list;
+	while (temp->next != NULL)
+		temp = temp->next;
+	temp->next = new_node;
 }
 
 //create a new node for the list
-t_stack	*lstnew(int value)
+t_stack	*create_new_node(int value)
 {
 	t_stack	*result;
 
@@ -75,15 +75,3 @@ t_stack	*lstnew(int value)
 	result->next = NULL;
 	return (result);
 }
-
-// get the mid element of the list, set it 1 step closer to the start
-// int	get_mid_element(int size)
-// {
-// 	int	mid;
-
-// 	if (size % 2 == 0)
-// 		mid = (size / 2) + 1;
-// 	else
-// 		mid = (size / 2);
-// 	return(mid);
-// }
