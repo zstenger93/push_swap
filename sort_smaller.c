@@ -1,79 +1,87 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_smaller.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/10 17:16:27 by zstenger          #+#    #+#             */
+/*   Updated: 2023/01/10 17:39:02 by zstenger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/push_swap.h"
 
 /*
-check if the numbers are in the right order if so return
 2 numbers -> switch them
 3 numbers -> sort_3
 3 < numbers < 6 -> sort_5
-push back from B the 2 smallest to A
 */
-void	sort_smaller(t_stack **a, t_stack **b, int length)
+void	sort_smaller(int *a, int length)
 {
-	if(list_is_in_order(*a) == 0)
-		return ;
 	if (length == 2)
+		write(1, "sa\n", 3);
+	else if (length > 2 && length < 6)
 	{
-		sa(a);
-		return ;
+		if (length == 3)
+			sort_3(a);
+		else
+			sort_5(a, length);
 	}
-	if (length > 3 && length < 6)
-		sort_5(a, b, length);
-	if (list_is_in_order(*a) == 1)
-		sort_3(a);
-	pb_to_a(a, b);
-	
 }
 
-void	sort_3(t_stack **a)
+//sort 3 numbers depending on the 5 possible cases
+void	sort_3(int *a)
 {
 	int	first;
 	int	second;
 	int	third;
 
-	first = (*a)->number;
-	second = (*a)->next->number;
-	third = (*a)->next->next->number;
-	if((first > second) && (first < third) && (second < third))
-		sa(a);
-	else if((first > second) && (first > third) && (second > third))
+	first = a[0];
+	second = a[1];
+	third = a[2];
+	if ((first > second) && (first < third) && (second < third))
+		write(1, "sa\n", 3);
+	else if ((first > second) && (first > third) && (second > third))
 	{
-		sa(a);
-		rra(a);
+		write(1, "sa\n", 3);
+		write(1, "rra\n", 4);
 	}
-	else if((first > second) && (first > third) && (second < third))
-		ra(a);
-	else if((first < second) && (first < third) && (second > third))
+	else if ((first > second) && (first > third) && (second < third))
+		write(1, "ra\n", 3);
+	else if ((first < second) && (first < third) && (second > third))
 	{
-		sa(a);
-		ra(a);
+		write(1, "sa\n", 3);
+		write(1, "ra\n", 3);
 	}
-	else if((first < second) && (first > third) && (second > third))
-		rra(a);
+	else if ((first < second) && (first > third) && (second > third))
+		write(1, "rra\n", 4);
 }
 
 /*
 move the smallest number to stack B until we have 3 numbers left in A
+then use sort_3 on A and move back the numbers from B to the top of A
 */
-void	sort_5(t_stack **a, t_stack **b, int length)
+void	sort_5(int *a, int length)
 {
-	int	position;
 	int	min;
-	int	mid;
+	int	i;
+	int	temp_length;
 
+	i = 0;
+	temp_length = length;
 	while (length > 3)
 	{
-		min = get_smallest_number(*a);
-		mid = length / 2;
-		position = get_min_position(*a, min);
-		while (position != 1)
+		min = get_smallest_number(a + i, length);
+		rotate_5(a + i, length, min);
+		if (a[i] == get_smallest_number(a + i, length))
 		{
-			if (position <= mid)
-				ra(a);
-			else if (position > mid)
-				rra(a);
-			position = get_min_position(*a, min);
+			write(1, "pb\n", 3);
+			length--;
+			i++;
 		}
-		pb(a, b);
-		length--;
 	}
+	sort_3(a + i);
+	while (temp_length-- > length)
+		write(1, "pa\n", 3);
 }

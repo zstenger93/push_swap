@@ -1,103 +1,113 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_bigger.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
+/*   Updated: 2023/01/10 17:40:28 by zstenger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/push_swap.h"
 
-void	sort_bigger(t_stack **a, t_stack **b, int length)
+void	sort_bigger(int *a, int *b, int length)
 {
-	// int i;
-	int chunks;
-	// int	chunk_number;
+	int	i;
+	int	mid;
+	int	b_length;
 
-	if (list_is_in_order(*a) == 0)
-		return ;
-	get_indexed_list_a(*a, length);
-	chunks = chunk_norris(length);
-	chunk_it_up(*a, length, chunks);
-	// chunk_number = (length / 100) + 3;
-	// i = 0;
-	// while ((chunk_number * i) < length)
-	// {
-	// 	move_chunks_to_b(a, b, length, chunks);
-	// 	i++;
-	// }
-	sort_to_b(a, b, length);
-	sort_to_a(a, b, length);
+	b_length = length;
+	i = 0;
+	while (b_length > 5)
+	{
+		mid = pivot_finder(a + i, b_length);
+		while (is_pivot_here(a + i, b_length, mid) && b_length > 5)
+		{
+			if (a[i] < mid)
+			{
+				write(1, "pb\n", 3);
+				b[--b_length] = a[i++];
+				continue ;
+			}
+			rotate(a + i, b_length);
+			write(1, "ra\n", 3);
+		}
+	}
+	sort_5(a + i, b_length);
+	sort_to_a(b + b_length, length - b_length);
 }
 
-//index the list
-void	get_indexed_list_a(t_stack *a, int length)
+int	pivot_finder(int *list, int length)
 {
-	int i;
-	t_stack	*temp_list;
-	t_stack	*temp;
+	int	i;
 
-	i = 1;
-	temp = NULL;
-	temp_list = a;
-	while((length + 1) > i)
+	i = 0;
+	while (i < length)
 	{
-		temp = set_the_index(temp_list);
-		temp->index = i;
+		if (calculation(list, list[i], length))
+			return (list[i]);
 		i++;
 	}
+	return (0);
 }
 
-//return the numbers from bigger to smaller
-t_stack	*set_the_index(t_stack *list)
+int	calculation(int *list, int mid, int length)
 {
-	t_stack *temp;
-	t_stack	*rtrn;
+	int	smaller;
+	int	i;
 
-	rtrn = NULL;
-	temp = list;
-	while (temp)
+	i = 0;
+	smaller = 0;
+	while (i < length)
 	{
-		while (rtrn == NULL)
-		{
-			if (temp->index == 0)
-				rtrn = temp;
-			temp = temp->next;
-		}
-		if (temp->number < rtrn->number && temp->index == 0)
-			rtrn = temp;
-		temp = temp->next;
+		if (list[i] < mid)
+			smaller++;
+		i++;
 	}
-	return (rtrn);
+	if (smaller == length / 3)
+		return (1);
+	return (0);
 }
 
-void	sort_to_b(t_stack **a, t_stack **b, int length)
+int	is_pivot_here(int *list, int length, int mid)
 {
-	int	mid;
-	int index;
+	int	i;
 
-	while (length > 1)
+	i = 0;
+	while (i < length)
 	{
-		if (get_smallest_number(*a) == (*a)->number)
-			pb(a, b);
-		mid = get_mid(length);
-		index = get_index_of_number((*a), (*a)->number);
-		if (mid > index && get_smallest_number(*a) != (*a)->number)
-			ra(a);
-		else if (get_smallest_number(*a) != (*a)->number)
-			rra(a);
+		if (list[i] < mid)
+			return (1);
+		i++;
 	}
-	pb(a, b);
+	return (0);
 }
 
-void	sort_to_a(t_stack **a, t_stack **b, int length)
+void	sort_to_a(int *list, int b_length)
 {
-	int mid;
+	static int		i = 0;
+	static int		j = 0;
+	static int		is = 0;
+	t_calculation	calc;
 
-	while((*b)->number == get_biggest_number(*b))
-		pa(a, b);
-	while (length > 0)
+	calc.min = get_smallest_number(list + i, b_length);
+	calc.max = get_biggest_number(list + i, b_length);
+	calc.next = get_next_biggest_number(list + i, b_length);
+	rotate_b(list + i, b_length, calc.max);
+	if (list[i] == calc.max || (list[i] == calc.next && !is)
+		|| list[i] == calc.min)
 	{
-		while (get_index_of_number(*b, get_biggest_number(*b)) != 1)
-		{
-			mid = get_mid(length);
-			if (mid > get_index_of_number(*b, get_biggest_number(*b)))
-				rb(b);
-			else
-				rrb(b);
-		}
-		pa(a, b);
+		write(1, "pa\n", 3);
+		if (list[i] == calc.next && is == 0)
+			is = 1;
+		else if (is && list[i] == calc.max)
+			write(is--, "sa\n", 3);
+		else if (list[i] == calc.min)
+			write(++j * 0 + 1, "ra\n", 3);
+		i += (--b_length * 0) + 1;
 	}
+	while (j--)
+		write(1, "rra\n", 4);
 }

@@ -1,68 +1,81 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/10 17:15:58 by zstenger          #+#    #+#             */
+/*   Updated: 2023/01/10 17:35:35 by zstenger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/push_swap.h"
 
-//push back the number from B to A untill nothing left in B
-void	pb_to_a(t_stack **a, t_stack **b)
+//rotate the b stack 
+void	rotate_b(int *list, int b_length, int max)
 {
-	while (*b != NULL)
-		pa(a, b);
-}
+	int	i;
 
-/*
-get the position of the min number on the list
-*/
-int	get_min_position(t_stack *number, int position)
-{
-	int pos;
-
-	if(!number)
-		return(1);
-	pos = 1;
-	while (number != NULL)
+	i = 0;
+	while (list[i] != max)
+		i++;
+	if (i == 0)
+		return ;
+	if (i < (b_length / 2) + 1)
 	{
-		if (number->number == position)
-			return(pos);
-		number = number->next;
-		pos++;
+		write(1, "rb\n", 3);
+		rotate(list, b_length);
 	}
-	return(1);
-}
-
-//find the biggest number on the list
-int	get_biggest_number(t_stack *number)
-{
-	int	max;
-
-	max = number->number;
-	while (number != NULL)
+	else
 	{
-		if (number->number > max)
-			max = number->number;
-		number = number->next;
+		write(1, "rrb\n", 4);
+		reverse_rotate(list, b_length);
 	}
-	return(max);
 }
 
-//find the smallest number on the list
-int	get_smallest_number(t_stack *number)
+//simply rotate the small list of numbers between 3-5
+void	rotate_5(int *list, int length, int max)
 {
-	int	min;
+	int	i;
 
-	min = number->number;
-	while (number != NULL)
+	i = 0;
+	while (list[i] != max)
+		i++;
+	if (i == 0)
+		return ;
+	if (i < (length / 2))
 	{
-		if (number->number < min)
-			min = number->number;
-		number = number->next;
+		write(1, "ra\n", 3);
+		rotate(list, length);
 	}
-	return(min);
+	else
+	{
+		write(1, "rra\n", 4);
+		reverse_rotate(list, length);
+	}
 }
 
-void	print_result(t_stack **number)
+//rotate numbers
+void	rotate(int *list, int length)
 {
-    t_stack *asd = *number;
-   	while ( asd != NULL) {
-        ft_printf("%d ", asd->number);
-        asd = asd->next;
-    }
-	write(1, "\n", 1);
+	int	temp;
+	int	i;
+
+	i = 0;
+	temp = list[i];
+	while (++i < length)
+		list[i - 1] = list[i];
+	list[i - 1] = temp;
+}
+
+//reverse rotate numbers
+void	reverse_rotate(int *list, int length)
+{
+	int	temp;
+
+	temp = list[length -1];
+	while (--length)
+		list[length] = list[length -1];
+	list[length] = temp;
 }

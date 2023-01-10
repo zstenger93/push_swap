@@ -1,77 +1,113 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   basic_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
+/*   Updated: 2023/01/10 21:15:17 by zstenger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/push_swap.h"
 
 //get the length of the list
-int list_size(t_stack *a)
+int	list_size(int argc, char **argv)
 {
-	int length;
-	if(!a)
-		return(0);
+	int			length;
+	int			i;
+	static int	j = 0;
+
 	length = 0;
-	while (a != NULL)
+	while (++j < argc)
 	{
-		a = a->next;
-		length++;
+		i = 0;
+		while (argv[j][i])
+		{
+			if (argv[j][i] == '+' || argv[j][i] == '-')
+				i++;
+			if (ft_isdigit(argv[j][i]))
+				length++;
+			else if (argv[j][i] != ' ' && argv[j][i] != '\t')
+				error();
+			while (ft_isdigit(argv[j][i]))
+				i++;
+			if (argv[j][i] && argv[j][i] != ' ' && argv[j][i] != '\t')
+				error();
+			while (argv[j][i] == '\t' || argv[j][i] == ' ')
+				i++;
+		}
 	}
-	return(length);
+	return (length);
 }
 
 //check if the list is in the correct order
-bool	list_is_in_order(t_stack *number)
+int	list_is_in_order(int *list, int length)
 {
-	if (!number->next)
-		return(1);
-	while(number->next != NULL)
+	int	i;
+
+	i = 0;
+	while (i < length)
 	{
-		if (number->number > number->next->number)
-			return(1);
-		number = number->next;
+		if (list[i] < list[i - 1])
+			return (0);
+		i++;
 	}
-	return(0);
+	return (1);
 }
 
-//free the stacks? mAyBeEe
-void	free_stack(t_stack **number)
+//find the smallest number on the list
+int	get_smallest_number(int *list, int length)
 {
-	t_stack *temp;
+	int	i;
+	int	min;
 
-	if ((!number) || (!*number))
-		return ;
-	while (*number != NULL)
+	i = 0;
+	min = *list;
+	while (length--)
 	{
-		temp = (*number)->next;
-		free(*number);
-		(*number) = temp;
+		if (min > list[i])
+			min = list[i];
+		i++;
 	}
-	*number = NULL;
+	return (min);
 }
 
-//add a node at the end of the list
-void	add_to_end_of_list(t_stack **list, t_stack *new_node)
+//get the biggest number we have in on the list
+int	get_biggest_number(int *list, int length)
 {
-	t_stack	*temp;
+	int	i;
+	int	max;
 
-	if (!new_node)
-		return ;
-	if (!*list)
+	i = 0;
+	max = *list;
+	while (length--)
 	{
-		*list = new_node;
-		return ;
+		if (max < list[i])
+			max = list[i];
+		i++;
 	}
-	temp = *list;
-	while (temp->next != NULL)
-		temp = temp->next;
-	temp->next = new_node;
+	return (max);
 }
 
-//create a new node for the list
-t_stack	*create_new_node(int value)
+//get the next biggest number on the list
+int	get_next_biggest_number(int *list, int length)
 {
-	t_stack	*result;
+	int	i;
+	int	next_max;
+	int	max;
 
-	result = malloc(sizeof(t_stack));
-	if (!result)
-		return (NULL);
-	result->number = value;
-	result->next = NULL;
-	return (result);
+	i = 0;
+	max = get_biggest_number(list, length);
+	next_max = *list;
+	if (next_max == max)
+		next_max = list[1];
+	while (length--)
+	{
+		if (next_max < list[i] && list[i] != max)
+			next_max = list[i];
+		i++;
+	}
+	return (next_max);
 }

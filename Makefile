@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/09 19:54:04 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/10 21:09:16 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,33 +15,57 @@ CC = gcc
 RM = rm -rf
 LIBFT = libft/libft.a
 CFLAGS = -Wall -Wextra -Werror
-SRCS = push_swap.c sort_smaller.c basic_utils.c operations/sa.c operations/sb.c \
-		operations/ss.c operations/pa.c operations/pb.c operations/ra.c \
-		operations/rb.c operations/rra.c operations/rrb.c operations/rrr.c \
-		operations/rr.c create_stack_a.c sort_utils.c error.c chunk_operations.c \
-		sort_bigger.c stack_utils.c
+SRCS = push_swap.c \
+		sort_smaller.c \
+		sort_bigger.c \
+		sort_utils.c error.c \
+		basic_utils.c
 
 OBJS = $(SRCS:.c=.o)
+
+DEF_COLOR = \033[0;39m
+RED = \033[1;91m
+GREEN = \033[4;92m
+CYAN = \033[1;96m
+YELLOW = \033[1;33m
+PURPLE = \033[1;35m
+BWhite = \033[1;37m
 
 all: $(NAME)
 
 $(NAME):$(OBJS) $(LIBFT)
+	@echo "$(YELLOW)Compiling: $(DEF_COLOR)$(CYAN)$(NAME) Mandatory part By:$(DEF_COLOR) $(RED)zstenger $(DEF_COLOR)"
 	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(LIBFT)
+	@echo "$(PURPLE)$(NAME) $(DEF_COLOR)$(GREEN)Compiling done.$(DEF_COLOR)"
+	@echo "\x1B[36m ██▓███   █    ██   ██████  ██░ ██   ██████  █     █░ ▄▄▄       ██▓███      ░████████  ██████  ████████  █████  ███░  ██  ░██████     █████   ████▓░"
+	@echo "▓██░  ██▒ ██  ▓██▒▒██    ▒ ▓██░ ██▒▒██    ▒ ▓█░ █ ░█░▒████▄    ▓██░  ██▒   ░▒ ░░▒███ ▒██▒░  ▒░  ░▒██▒░  ██▒░   ██░█░░██  ██▓▒ ▒▓██   ██▒░░   ██░ ░██"
+	@echo "▓██░ ██▓▒▓██  ▒██░░ ▓██▄   ▒██▀▀██░░ ▓██▄   ▒█░ █ ░█ ▒██  ▀█▄  ▓██░ ██▓▒     ░▒███▓▒ ░ ▓██▄  ░ ░▒██▒░  ████   ██░█░░██  ██▓▒░▓█░    ████░░░ ██████▓"
+	@echo "▒██▄█▓▒ ▒▓▓█  ░██░  ▒   ██▒░▓█ ░██   ▒   ██▒░█░ █ ░█ ░██▄▄▄▄██ ▒██▄█▓▒ ▒    ░▒███▓▒    ▒   ██ ░▒██▒░  ██▒░   ██░█░░██   ▒██▓▒▒▓██  ██▒░░░  ██▒░▒██░"
+	@echo "▒██▒ ░  ░▒▒█████▓ ▒██████▒▒░▓█▒░██▓▒██████▒▒░░██▒██▓  ▓█   ▓██▒▒██▒ ░  ░   ░████████ ▒██████▒▒ ██▒░  ██████ ██░▓███▒░     ▒████░  ██████  ██▒░ ░▒██░"
+	@echo "▒▓▒░ ░  ░░▒▓▒ ▒ ▒ ▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒▒ ▒▓▒ ▒ ░░ ▓░▒ ▒   ▒▒   ▓▒█░▒▓▒░ ░  ░  ░▒██▒     ░░▒ ▒▓▒ ▒ ░      ░▓░▒ ▒ ▒ ░░▒░▒▒       ▒▓▒ ▒   ▓░▒ ▒  ▒▓░   ░▒▓░"
+	@echo "░▒ ░     ░░▒░ ░ ░ ░ ░▒  ░ ░ ▒ ░▒░ ░░ ░▒  ░ ░  ▒ ░ ░    ▒   ▒▒ ░░▒ ░     ░░░▒▓▒      ░▒ ▒▓▒ ▒ ░       ▒ ░ ░  ▒ ░▒░ ░░       ░▒  ░  ▒ ░ ░   ░░      ░░░"
+	@echo "░░        ░░░ ░ ░ ░  ░  ░   ░  ░░ ░░  ░  ░    ░   ░    ░   ▒   ░░       ░  ░ ░       ░ ░▒  ░ ░       ░   ░     ░           ░     ░░       ░       ░ ░"
+	@echo "            ░           ░   ░  ░  ░      ░      ░          ░  ░         ░              ░     ░         ░                                           ░"
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
+	@echo "$(YELLOW)Compiling: $(DEF_COLOR)$(CYAN)LIBFT. $(DEF_COLOR)"
 	git submodule update --init --recursive --remote
 	make -C ./libft
+	@echo "$(PURPLE)LIBFT $(DEF_COLOR)$(GREEN)has been compiled.$(DEF_COLOR)"
 
 clean:
 	$(RM) $(OBJS)
-	@echo "$(CYAN)Object files are successfully removed!$(DEF_COLOR)"
+	make clean -C ./libft
+	@echo "$(CYAN)Object files have been successfully removed!$(DEF_COLOR)"
 
 fclean: clean
+	@echo "$(RED)Deleting objects.$(DEF_COLOR)"
 	$(RM) $(NAME)
-	@echo "$(CYAN)The .a file has been removed!$(DEF_COLOR)"
+	make fclean -C ./libft
+	@echo "$(CYAN)All .o & .a files have been removed.$(DEF_COLOR)"
 
 re: fclean all
 	@echo "$(RED)Files have been cleaned and project has been rebuilt!$(DEF_COLOR)"

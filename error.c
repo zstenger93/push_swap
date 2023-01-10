@@ -1,9 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/10 17:16:15 by zstenger          #+#    #+#             */
+/*   Updated: 2023/01/10 17:16:16 by zstenger         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/push_swap.h"
 
-void	error(t_stack **a, t_stack **b)
+void	error(void)
 {
 	ft_printf("\e[1;4;31mError!\e[0m\n");
-	free_stack(a);
-	free_stack(b);
 	exit(1);
 }
