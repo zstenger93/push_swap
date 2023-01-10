@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:04 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/10 17:50:11 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:24:44 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	create_list(int length, int *list_a, char **argv)
 	check_for_doubles(list_a, length);
 }
 
+//return error if there are doubles in the list
 void	check_for_doubles(int *list, int length)
 {
 	int	i;

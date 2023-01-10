@@ -6,12 +6,20 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/10 17:40:28 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/10 21:44:49 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
+/*
+bigger list sorting
+get the pivot number what I will call MID
+while I have the position of the PIVOT(MID) compare the list elements to it,
+if they are smaller use PB(push to B) else RA(rotate A)
+after we are done with pushing to B, sort the remaining 5 in A with sort_5
+then sort back the rest with sort_to_a
+*/
 void	sort_bigger(int *a, int *b, int length)
 {
 	int	i;
@@ -39,6 +47,7 @@ void	sort_bigger(int *a, int *b, int length)
 	sort_to_a(b + b_length, length - b_length);
 }
 
+//get the pivot number
 int	pivot_finder(int *list, int length)
 {
 	int	i;
@@ -53,6 +62,7 @@ int	pivot_finder(int *list, int length)
 	return (0);
 }
 
+//check if the pivot number is correct
 int	calculation(int *list, int mid, int length)
 {
 	int	smaller;
@@ -71,6 +81,7 @@ int	calculation(int *list, int mid, int length)
 	return (0);
 }
 
+//check if the element of the list is the pivot number or not
 int	is_pivot_here(int *list, int length, int mid)
 {
 	int	i;
@@ -85,6 +96,16 @@ int	is_pivot_here(int *list, int length, int mid)
 	return (0);
 }
 
+/*
+calc the smallest number
+calc the biggest number
+calc the next biggest number
+sort back the numbers from B to A, one biggest number at a time
+rotate B until the biggest number will be on top then push it to A
+reapeat with next biggest number
+if the current element of the list is equal to MAX, NEXT MAX or MIN,
+apply the correct operation, PA, SA, RA if none of them, RRA
+*/
 void	sort_to_a(int *list, int b_length)
 {
 	static int		i = 0;

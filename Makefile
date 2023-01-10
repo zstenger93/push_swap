@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/10 21:20:04 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/10 21:22:50 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,9 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c \
 		sort_smaller.c \
 		sort_bigger.c \
-		sort_utils.c error.c \
-		basic_utils.c
+		sort_utils.c \
+		basic_utils.c \
+		error.c \
 
 OBJS = $(SRCS:.c=.o)
 
