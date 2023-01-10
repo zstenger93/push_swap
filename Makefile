@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/10 21:09:16 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/10 21:20:04 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ BWhite = \033[1;37m
 
 all: $(NAME)
 
-$(NAME):$(OBJS) $(LIBFT)
+$(NAME): $(LIBFT) $(OBJS) 
 	@echo "$(YELLOW)Compiling: $(DEF_COLOR)$(CYAN)$(NAME) Mandatory part By:$(DEF_COLOR) $(RED)zstenger $(DEF_COLOR)"
 	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(LIBFT)
 	@echo "$(PURPLE)$(NAME) $(DEF_COLOR)$(GREEN)Compiling done.$(DEF_COLOR)"
