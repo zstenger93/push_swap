@@ -6,13 +6,16 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/10 21:25:14 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/11 10:49:13 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-//get the length of the list while calculating only numbers
+/*
+get the length of the list while calculating only numbers,
+not the -, +, space, tab, and if it's none of them, return an error
+*/
 int	list_size(int argc, char **argv)
 {
 	int			length;
@@ -57,7 +60,7 @@ int	list_is_in_order(int *list, int length)
 	return (1);
 }
 
-//find the smallest number on the list
+//get the smallest number on the list
 int	get_smallest_number(int *list, int length)
 {
 	int	i;
@@ -91,7 +94,7 @@ int	get_biggest_number(int *list, int length)
 	return (max);
 }
 
-//get the next biggest number on the list
+//get the next biggest number from B
 int	get_next_biggest_number(int *list, int length)
 {
 	int	i;

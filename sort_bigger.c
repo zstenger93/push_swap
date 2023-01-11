@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/10 21:44:49 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:25:35 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,21 +113,24 @@ void	sort_to_a(int *list, int b_length)
 	static int		is = 0;
 	t_calculation	calc;
 
-	calc.min = get_smallest_number(list + i, b_length);
-	calc.max = get_biggest_number(list + i, b_length);
-	calc.next = get_next_biggest_number(list + i, b_length);
-	rotate_b(list + i, b_length, calc.max);
-	if (list[i] == calc.max || (list[i] == calc.next && !is)
-		|| list[i] == calc.min)
+	while (b_length > 0)
 	{
-		write(1, "pa\n", 3);
-		if (list[i] == calc.next && is == 0)
-			is = 1;
-		else if (is && list[i] == calc.max)
-			write(is--, "sa\n", 3);
-		else if (list[i] == calc.min)
-			write(++j * 0 + 1, "ra\n", 3);
-		i += (--b_length * 0) + 1;
+		calc.min = get_smallest_number(list + i, b_length);
+		calc.max = get_biggest_number(list + i, b_length);
+		calc.next = get_next_biggest_number(list + i, b_length);
+		rotate_b(list + i, b_length, calc.max);
+		if (list[i] == calc.max || (list[i] == calc.next && !is)
+			|| list[i] == calc.min)
+		{
+			write(1, "pa\n", 3);
+			if (list[i] == calc.next && is == 0)
+				is = 1;
+			else if (is && list[i] == calc.max)
+				write(is--, "sa\n", 3);
+			else if (list[i] == calc.min)
+				write(++j * 0 + 1, "ra\n", 3);
+			i += (--b_length * 0) + 1;
+		}
 	}
 	while (j--)
 		write(1, "rra\n", 4);

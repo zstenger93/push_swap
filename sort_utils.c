@@ -6,13 +6,16 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:58 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/10 17:35:35 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/11 10:46:03 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-//rotate the b stack 
+/*
+B stack rotate
+if it's closer to top, use RB else use RRB
+*/
 void	rotate_b(int *list, int b_length, int max)
 {
 	int	i;
@@ -34,7 +37,10 @@ void	rotate_b(int *list, int b_length, int max)
 	}
 }
 
-//simply rotate the small list of numbers between 3-5
+/*
+simply rotate the small list of numbers between 3-5
+if it's closer to top, use RA else use RRA
+*/
 void	rotate_5(int *list, int length, int max)
 {
 	int	i;
