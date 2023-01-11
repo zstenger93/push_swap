@@ -6,14 +6,12 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/11 13:36:10 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/11 18:38:20 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define INT_MAX "2147483647"
-# define INT_MIN "-2147483648"
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -23,8 +21,8 @@
 typedef struct s_calculation
 {
 	int	min;
-	int	next;
 	int	max;
+	int	next;
 }t_calculation;
 
 void	error(void);

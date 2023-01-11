@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/11 13:51:59 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:45:07 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	sort_bigger(int *a, int *b, int length)
 	sort_to_a(b + b_length, length - b_length);
 }
 
-//goes thru the list to find the pivot number we will use as MID
+//goes thru the list to find the pivot number I will call as MID
 int	pivot_finder(int *list, int b_length, int length)
 {
 	int	i;
@@ -120,10 +120,10 @@ rotate B until the biggest number will be on top then push it to A
 reapeat with next biggest number
 if the current element of the list is equal to MAX, NEXT MAX or MIN,
 apply the correct operation, PA, SA, RA if none of them, RRA
-is and j only implemented to save space because of norm fd will be
-always one to print
+j and is only implemented to save space because of norm 25lines limit
+fd will be always 1 to print the operations
 at the end with the while loop we will put the remaining min numbers
-from the bottom to the top
+from the bottom to the top (also saving private ryan, i mean space..)
 */
 void	sort_to_a(int *list, int b_length)
 {
