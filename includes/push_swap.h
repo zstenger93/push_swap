@@ -6,14 +6,14 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/10 21:48:28 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:36:10 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # define INT_MAX "2147483647"
-# define INT_MIN "-2147483647"
+# define INT_MIN "-2147483648"
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -56,8 +56,8 @@ int		get_next_biggest_number(int *list, int length);
 
 //big sort
 void	sort_bigger(int *a, int *b, int length);
-int		pivot_finder(int *list, int length);
-int		calculation(int *list, int mid, int length);
+int		pivot_finder(int *list, int b_length, int length);
+int		calculation(int *list, int mid, int b_length, int length);
 int		is_pivot_here(int *list, int length, int mid);
 void	sort_to_a(int *list, int b_length);
 

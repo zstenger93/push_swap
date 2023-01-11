@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/11 11:25:35 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:51:59 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sort_bigger(int *a, int *b, int length)
 	i = 0;
 	while (b_length > 5)
 	{
-		mid = pivot_finder(a + i, b_length);
+		mid = pivot_finder(a + i, b_length, length);
 		while (is_pivot_here(a + i, b_length, mid) && b_length > 5)
 		{
 			if (a[i] < mid)
@@ -47,37 +47,52 @@ void	sort_bigger(int *a, int *b, int length)
 	sort_to_a(b + b_length, length - b_length);
 }
 
-//get the pivot number
-int	pivot_finder(int *list, int length)
+//goes thru the list to find the pivot number we will use as MID
+int	pivot_finder(int *list, int b_length, int length)
 {
 	int	i;
 
 	i = 0;
-	while (i < length)
+	while (i < b_length)
 	{
-		if (calculation(list, list[i], length))
+		if (calculation(list, list[i], b_length, length))
 			return (list[i]);
 		i++;
 	}
 	return (0);
 }
 
-//check if the pivot number is correct
-int	calculation(int *list, int mid, int length)
+/*
+counts the elements in the list that are smaller than the current MID
+if this count equal to 1/2 or 1/5 of the list then it will be picked as pivot
+kinda random number 1/2 or 1/5 of the way thru the list
+not the most efficient coz now we pick a random number but cannot
+figure out other way.
+the best would be to pick middle number of the ordered list
+*/
+int	calculation(int *list, int mid, int b_length, int length)
 {
 	int	smaller;
 	int	i;
 
 	i = 0;
 	smaller = 0;
-	while (i < length)
+	while (i < b_length)
 	{
 		if (list[i] < mid)
 			smaller++;
 		i++;
 	}
-	if (smaller == length / 3)
-		return (1);
+	if (length < 157)
+	{
+		if (smaller == b_length / 2)
+			return (1);
+	}
+	else if (length > 156)
+	{
+		if (smaller == b_length / 5)
+			return (1);
+	}
 	return (0);
 }
 
@@ -105,29 +120,32 @@ rotate B until the biggest number will be on top then push it to A
 reapeat with next biggest number
 if the current element of the list is equal to MAX, NEXT MAX or MIN,
 apply the correct operation, PA, SA, RA if none of them, RRA
+is and j only implemented to save space because of norm fd will be
+always one to print
+at the end with the while loop we will put the remaining min numbers
+from the bottom to the top
 */
 void	sort_to_a(int *list, int b_length)
 {
 	static int		i = 0;
 	static int		j = 0;
 	static int		is = 0;
-	t_calculation	calc;
+	t_calculation	c;
 
 	while (b_length > 0)
 	{
-		calc.min = get_smallest_number(list + i, b_length);
-		calc.max = get_biggest_number(list + i, b_length);
-		calc.next = get_next_biggest_number(list + i, b_length);
-		rotate_b(list + i, b_length, calc.max);
-		if (list[i] == calc.max || (list[i] == calc.next && !is)
-			|| list[i] == calc.min)
+		c.min = get_smallest_number(list + i, b_length);
+		c.max = get_biggest_number(list + i, b_length);
+		c.next = get_next_biggest_number(list + i, b_length);
+		rotate_b(list + i, b_length, c.max);
+		if (list[i] == c.max || (list[i] == c.next && !is) || list[i] == c.min)
 		{
 			write(1, "pa\n", 3);
-			if (list[i] == calc.next && is == 0)
+			if (list[i] == c.next && is == 0)
 				is = 1;
-			else if (is && list[i] == calc.max)
+			else if (is && list[i] == c.max)
 				write(is--, "sa\n", 3);
-			else if (list[i] == calc.min)
+			else if (list[i] == c.min)
 				write(++j * 0 + 1, "ra\n", 3);
 			i += (--b_length * 0) + 1;
 		}

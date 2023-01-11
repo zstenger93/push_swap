@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/10 21:22:50 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/11 11:56:58 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,9 @@ BWhite = \033[1;37m
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJS) 
-	@echo "$(YELLOW)Compiling: $(DEF_COLOR)$(CYAN)$(NAME) Mandatory part By:$(DEF_COLOR) $(RED)zstenger $(DEF_COLOR)"
+$(NAME): $(LIBFT) colorit $(OBJS) 
+	@echo "$(YELLOW)Compiling: $(DEF_COLOR)$(PURPLE)$(NAME) Mandatory part By:$(DEF_COLOR) $(RED)zstenger $(DEF_COLOR)"
+	@echo "\x1B[36m"
 	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(LIBFT)
 	@echo "$(PURPLE)$(NAME) $(DEF_COLOR)$(GREEN)Compiling done.$(DEF_COLOR)"
 	@echo "\x1B[36m ██▓███   █    ██   ██████  ██░ ██   ██████  █     █░ ▄▄▄       ██▓███      ░████████  ██████  ████████  █████  ███░  ██  ░██████     █████   ████▓░"
@@ -53,22 +54,28 @@ $(NAME): $(LIBFT) $(OBJS)
 
 $(LIBFT):
 	@echo "$(YELLOW)Compiling: $(DEF_COLOR)$(CYAN)LIBFT. $(DEF_COLOR)"
+	@echo "\x1B[36m"
 	git submodule update --init --recursive --remote
 	make -C ./libft
 	@echo "$(PURPLE)LIBFT $(DEF_COLOR)$(GREEN)has been compiled.$(DEF_COLOR)"
 
 clean:
+	@echo "\x1B[36m"
 	$(RM) $(OBJS)
 	make clean -C ./libft
-	@echo "$(CYAN)Object files have been successfully removed!$(DEF_COLOR)"
+	@echo "$(RED)Object files have been successfully removed!$(DEF_COLOR)"
 
 fclean: clean
 	@echo "$(RED)Deleting objects.$(DEF_COLOR)"
+	@echo "\x1B[36m"
 	$(RM) $(NAME)
 	make fclean -C ./libft
-	@echo "$(CYAN)All .o & .a files have been removed.$(DEF_COLOR)"
+	@echo "$(RED)All .o & .a files have been removed.$(DEF_COLOR)"
 
 re: fclean all
 	@echo "$(RED)Files have been cleaned and project has been rebuilt!$(DEF_COLOR)"
+
+colorit:
+	@echo "\x1B[36m"
 
 .PHONY: all clean fclean re
