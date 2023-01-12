@@ -6,10 +6,11 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/11 17:01:38 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/12 12:04:31 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+file := random_string.txt
 NAME = push_swap
 CC = gcc
 RM = rm -rf
@@ -78,4 +79,63 @@ re: fclean all
 colorit:
 	@echo "\x1B[1;36m"
 
+random_string.txt:
+	touch $@
+
+random_string:
+	@if [ -f random_string.txt ]; then \
+	  random_string="" ;\
+	  generated_numbers=() ;\
+	  for i in {1..100} ;\
+	  do \
+	  random_number=$$((RANDOM % 500)) ;\
+	  for index in $${generated_numbers[*]} ;\
+	  do \
+		if [[ $$index -eq $$random_number ]]; then \
+			random_number=$$((RANDOM % 500)) ;\
+			break; \
+		fi; \
+	  done; \
+	  generated_numbers+=($$random_number) ;\
+	  random_string="$$random_string $$random_number" ;\
+	done ;\
+	echo "$$random_string" > random_string.txt ;\
+	fi
+test:random_string 
+	ARG="$(shell cat ${file})"; ./$(NAME) $$ARG | wc -l
+	ARG="$(shell cat ${file})"; ./$(NAME) $$ARG | ./checker_Mac $$ARG
+
 .PHONY: all clean fclean re
+
+# random_string="" ;\
+# 	for i in {1..500} ;\
+# 	do \
+# 	  generated_numbers=() ;\
+# 	  random_number=$$((RANDOM % 500)) ;\
+# 	  for index in $${generated_numbers[*]} ;\
+# 	  do \
+# 		if [[ $$index -eq $$random_number ]]; then \
+# 			random_number=$$((RANDOM % 500)) ;\
+# 			break; \
+# 		fi; \
+# 	  done; \
+# 	  generated_numbers+=($$random_number);\
+# 	  random_string="$$random_string $$random_number" ;\
+# 	done ;\
+# 	echo "$$random_string" > random_string.txt ;\
+
+# @if [ -f random_string.txt ]; then \
+# 	  random_string="" ;\
+# 	  generated_numbers=() ;\
+# 	  for i in {1..100} ;\
+# 	  do \
+# 	    random_number=$$((RANDOM % 500)) ;\
+# 	    while [[ ${generated_numbers[$$random_number]} -eq 1 ]] ;\
+# 	    do \
+# 	      random_number=$$((RANDOM % 500)) ;\
+# 	    done ;\
+# 	    generated_numbers[$$random_number]=1 ;\
+# 	    random_string="$$random_string $$random_number" ;\
+# 	  done ;\
+# 	  echo "$$random_string" > random_string.txt ;\
+# 	fi
