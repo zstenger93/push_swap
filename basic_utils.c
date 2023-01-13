@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/11 10:49:13 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:17:32 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	list_size(int argc, char **argv)
 	return (length);
 }
 
-//check if the list is in the correct order
 int	list_is_in_order(int *list, int length)
 {
 	int	i;
@@ -60,7 +59,6 @@ int	list_is_in_order(int *list, int length)
 	return (1);
 }
 
-//get the smallest number on the list
 int	get_smallest_number(int *list, int length)
 {
 	int	i;
@@ -77,7 +75,6 @@ int	get_smallest_number(int *list, int length)
 	return (min);
 }
 
-//get the biggest number we have in on the list
 int	get_biggest_number(int *list, int length)
 {
 	int	i;
@@ -94,7 +91,6 @@ int	get_biggest_number(int *list, int length)
 	return (max);
 }
 
-//get the next biggest number from B
 int	get_next_biggest_number(int *list, int length)
 {
 	int	i;

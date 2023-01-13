@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/11 17:45:07 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:03:19 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,18 +112,14 @@ int	is_pivot_here(int *list, int length, int mid)
 }
 
 /*
-calc the smallest number
-calc the biggest number
-calc the next biggest number
-sort back the numbers from B to A, one biggest number at a time
 rotate B until the biggest number will be on top then push it to A
 reapeat with next biggest number
 if the current element of the list is equal to MAX, NEXT MAX or MIN,
-apply the correct operation, PA, SA, RA if none of them, RRA
-j and is only implemented to save space because of norm 25lines limit
-fd will be always 1 to print the operations
-at the end with the while loop we will put the remaining min numbers
-from the bottom to the top (also saving private ryan, i mean space..)
+apply the correct operation, PA, SA, RA
+j and is for saving space fd will be always 1 to print the operations
+the last while loop when there is nothing left in B we will put the
+remaining min numbers from the bottom of A to the top
+(also for saving private ryan, i mean space..)
 */
 void	sort_to_a(int *list, int b_length)
 {

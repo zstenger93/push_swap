@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:58 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/11 10:46:03 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:18:07 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	rotate_5(int *list, int length, int max)
 	}
 }
 
-//rotate numbers
 void	rotate(int *list, int length)
 {
 	int	temp;
@@ -75,7 +74,6 @@ void	rotate(int *list, int length)
 	list[i - 1] = temp;
 }
 
-//reverse rotate numbers
 void	reverse_rotate(int *list, int length)
 {
 	int	temp;

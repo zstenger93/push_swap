@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/12 12:04:31 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/13 12:05:12 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,63 +79,25 @@ re: fclean all
 colorit:
 	@echo "\x1B[1;36m"
 
-random_string.txt:
-	touch $@
+OS = $(shell uname)
 
-random_string:
-	@if [ -f random_string.txt ]; then \
-	  random_string="" ;\
-	  generated_numbers=() ;\
-	  for i in {1..100} ;\
-	  do \
-	  random_number=$$((RANDOM % 500)) ;\
-	  for index in $${generated_numbers[*]} ;\
-	  do \
-		if [[ $$index -eq $$random_number ]]; then \
-			random_number=$$((RANDOM % 500)) ;\
-			break; \
-		fi; \
-	  done; \
-	  generated_numbers+=($$random_number) ;\
-	  random_string="$$random_string $$random_number" ;\
-	done ;\
-	echo "$$random_string" > random_string.txt ;\
-	fi
-test:random_string 
-	ARG="$(shell cat ${file})"; ./$(NAME) $$ARG | wc -l
-	ARG="$(shell cat ${file})"; ./$(NAME) $$ARG | ./checker_Mac $$ARG
+size ?= 500
 
-.PHONY: all clean fclean re
+ifeq ($(OS),Linux)
+CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
+else
+CHECKER = ./push_swap $(ARG) | ./checker_Mac $(ARG)
+endif
 
-# random_string="" ;\
-# 	for i in {1..500} ;\
-# 	do \
-# 	  generated_numbers=() ;\
-# 	  random_number=$$((RANDOM % 500)) ;\
-# 	  for index in $${generated_numbers[*]} ;\
-# 	  do \
-# 		if [[ $$index -eq $$random_number ]]; then \
-# 			random_number=$$((RANDOM % 500)) ;\
-# 			break; \
-# 		fi; \
-# 	  done; \
-# 	  generated_numbers+=($$random_number);\
-# 	  random_string="$$random_string $$random_number" ;\
-# 	done ;\
-# 	echo "$$random_string" > random_string.txt ;\
+rt:
+	@$(eval ARG = $(shell seq 1 500 | shuf -n $(size)))
+	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
+	@./push_swap $(ARG) | wc -l
+	@echo "\x1B[1;4;91m42 checker result: \033[0;39m\x1B[1;33m"
+	$(CHECKER)
 
-# @if [ -f random_string.txt ]; then \
-# 	  random_string="" ;\
-# 	  generated_numbers=() ;\
-# 	  for i in {1..100} ;\
-# 	  do \
-# 	    random_number=$$((RANDOM % 500)) ;\
-# 	    while [[ ${generated_numbers[$$random_number]} -eq 1 ]] ;\
-# 	    do \
-# 	      random_number=$$((RANDOM % 500)) ;\
-# 	    done ;\
-# 	    generated_numbers[$$random_number]=1 ;\
-# 	    random_string="$$random_string $$random_number" ;\
-# 	  done ;\
-# 	  echo "$$random_string" > random_string.txt ;\
-# 	fi
+# if it says no shuf command found:
+# copypaste and run:
+# brew install coreutils
+
+.PHONY: all clean fclean re rt colorit
