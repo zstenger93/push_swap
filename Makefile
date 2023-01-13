@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/13 18:20:13 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/13 19:11:29 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ BONUS_NAME = checker
 CC = gcc
 RM = rm -rf
 LIBFT = libft/libft.a
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = 
+# -Wall -Wextra -Werror
 
 SRCS = push_swap.c \
 		create_list.c \
