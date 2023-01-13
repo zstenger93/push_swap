@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:27 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/10 21:27:00 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:44:12 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 2 numbers -> switch them
-3 numbers -> sort_3
+3 numbers -> sort_3 on the 5 possible cases
 3 < numbers < 6 -> sort_5
 */
 void	sort_smaller(int *a, int length)
@@ -30,7 +30,6 @@ void	sort_smaller(int *a, int length)
 	}
 }
 
-//sort 3 numbers depending on the 5 possible cases
 void	sort_3(int *a)
 {
 	int	first;

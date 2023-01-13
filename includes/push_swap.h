@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/11 18:38:20 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/13 18:34:46 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,12 @@ void	sort_smaller(int *a, int length);
 void	sort_3(int *a);
 void	sort_5(int *a, int length);
 
-//ra, rb, rra, rrb
+//ra, rb, rr, rra, rrb, rrr, sa, sb, ss
 void	rotate_5(int *list, int length, int max);
 void	rotate(int *list, int length);
 void	reverse_rotate(int *list, int length);
 void	rotate_b(int *list, int b_length, int max);
+void	sa_or_sb(int *list, int argc);
 
 //finding nemo, I mean numbers
 int		get_smallest_number(int *list, int length);
@@ -58,5 +59,7 @@ int		pivot_finder(int *list, int b_length, int length);
 int		calculation(int *list, int mid, int b_length, int length);
 int		is_pivot_here(int *list, int length, int mid);
 void	sort_to_a(int *list, int b_length);
+
+//checker
 
 #endif
