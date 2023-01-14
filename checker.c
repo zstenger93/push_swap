@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/13 19:16:13 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/14 13:27:54 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,23 @@ char	*read_terminal(int argc, char **argv)
 		operation = get_next_line(0);
 		if (operation == NULL)
 			break ;
-		// is_valid_operation(operation, operation_list);
+		is_valid_operation(operation, operation_list);
 		operation_list = ft_gnl_strjoin(operation_list, operation);
 	}
 	return (operation_list);
+}
+
+void	is_valid_operation(char *operation, char *operation_list)
+{
+	static char	*valid_operations[11] = {"sa\n", "ra\n", "rra\n", "pa\n",
+		"sb\n", "rb\n", "rrb\n", "pb\n", "rrr\n", "ss\n", "rr\n"};
+	int			i;
+
+	if ((ft_strlen(operation) == 3) || ft_strlen(operation) == 4)
+		while (i < 11)
+			if (ft_strcmp(operation, valid_operations[i++]))
+				return ;
+	free(operation_list);
+	free(operation);
+	error();
 }
