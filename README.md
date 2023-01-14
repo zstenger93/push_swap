@@ -21,7 +21,7 @@
 
 ### My approach:
 
-	> - I'm not the the best with algorythms so maybe this repo won't be your best choice, but
+	> <i>I'm not the the best with algorythms so maybe this repo won't be your best choice, but
 	> - I've tried to keep it simple and as clean as possible
 
 	> - My solution was quicksort but with sort of random pivot number picking.
@@ -64,7 +64,7 @@
 	it's equal to `min` count up with `j` and do `RA` to put it on the bottom of the list.
 	Then `i++` and `--length` and repeat.
 	When everything is moved back to a then `j--` and `RRA` to move the smallest numbers from the
-	bottom to the top, `free` the stacks and we are done.
+	bottom to the top, `free` the stacks and we are done.</i>
 
 ---
 
