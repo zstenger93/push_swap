@@ -158,4 +158,16 @@ is incorrectly formatted.</i>
 ```shell
 $ make rt
 ```
-> - It generates random numbers each time for the arguments:
+> - In case it says shuf is an unknown command:
+```shell
+$ brew install coreutils
+```
+> - It generates random numbers each time you run it for the arguments
+> - You can modify the numbers:
+> - `Size` -> the length of the list
+> - `seq 1 500` -> the range of the numbers the list elements will be randomly selected
+> - Don't pick too big range with this test because it will take forever to shuffle the range
+> - If you want to test with edge cases like `min` and `max int` by yourself as well then do it manually
+```shell
+$ Thank you for your pushing interest in this swapping.
+```
