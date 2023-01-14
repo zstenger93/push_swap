@@ -52,6 +52,11 @@ int	list_is_in_order(int *list, int length)
 	i = 0;
 	while (i < length)
 	{
+		if (i == 0)
+		{
+			i++;
+			i--;
+		}
 		if (list[i - 1] > list[i])
 			return (0);
 		i++;
