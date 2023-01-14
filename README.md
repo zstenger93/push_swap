@@ -21,50 +21,50 @@
 
 ### My approach:
 
-	> <i>I'm not the the best with algorythms so maybe this repo won't be your best choice, but
-	> - I've tried to keep it simple and as clean as possible
+> <i>I'm not the the best with algorythms so maybe this repo won't be your best choice, but
+> - I've tried to keep it simple and as clean as possible
 
-	> - My solution was quicksort but with sort of random pivot number picking.
-	> - I take the length of the list and divide it by 2 around 100 and by 5 at 500 numbers.
-	> - Depending on that my pivot number will be at 1/2 or 1/5 from the start of the list.
+> - My solution was quicksort but with sort of random pivot number picking.
+> - I take the length of the list and divide it by 2 around 100 and by 5 at 500 numbers.
+> - Depending on that my pivot number will be at 1/2 or 1/5 from the start of the list.
 
-	> - It's random, but I've found it effective.
-	> - I've been testing for a while t get the best option and this is the best I could get so far.
+> - It's random, but I've found it effective.
+> - I've been testing for a while t get the best option and this is the best I could get so far.
 
-	> - With `small lists` it is the usual as for most approach, with  2 number just `swap`,
-	then `sort_3` with the 5 possible variations and then `sort_5` with pushing the smallest
-	numbers to stack B until 3 left in A, then `sort_3` and move back the 2 smallest to the top.
-	> - To be honest it's not really the most effective because I'm moving numbers around even when
-	a simple `RRA` would be enough, but still complies with the requirements very well.
+> - With `small lists` it is the usual as for most approach, with  2 number just `swap`,
+then `sort_3` with the 5 possible variations and then `sort_5` with pushing the smallest
+numbers to stack B until 3 left in A, then `sort_3` and move back the 2 smallest to the top.
+> - To be honest it's not really the most effective because I'm moving numbers around even when
+a simple `RRA` would be enough, but still complies with the requirements very well.
 
-	> - `Sorting bigger` lists is where the algorythm kicks in.
-	> - So first I have a while loop with the `length` of the list.
-	until it's bigger than five I get my `MID` which will be the pivot number so not exactly mid.
-	when the element of the list is equal of the `length / 2` or `length / 5` depending on the
-	length of the list.
-	> - After I've found the pivot number, I take it in a while statement, until `pivot && length > 5`
-	> - I sort the list to stack `B`. if it's smaller than the pivot `PB` else `RA`/
-	> - When we are out of smaller numbers than pivot && there are more than 5 element left on the list,
-	we get another pivot and repeat until only 5 number remains.
+> - `Sorting bigger` lists is where the algorythm kicks in.
+> - So first I have a while loop with the `length` of the list.
+until it's bigger than five I get my `MID` which will be the pivot number so not exactly mid.
+when the element of the list is equal of the `length / 2` or `length / 5` depending on the
+length of the list.
+> - After I've found the pivot number, I take it in a while statement, until `pivot && length > 5`
+> - I sort the list to stack `B`. if it's smaller than the pivot `PB` else `RA`/
+> - When we are out of smaller numbers than pivot && there are more than 5 element left on the list,
+we get another pivot and repeat until only 5 number remains.
 
-	> - When it's finished, the remaining 5 number on stack `A` is being sorted
-	which are the 5 biggest number.
-	> - Afterwards we start pushing back from `B` to `A` with `sort_to_a` with the following steps.
+> - When it's finished, the remaining 5 number on stack `A` is being sorted
+which are the 5 biggest number.
+> - Afterwards we start pushing back from `B` to `A` with `sort_to_a` with the following steps.
 
-	> - For this I have a struct to save space and it's easier anyway.
-	> - 	Calculate the smallest number on the list.
-	> - 	Calculate the biggest number on the list.
-	> - 	Calculate the next biggest number on the list.
-	> - `RB` to get the `current max` to the top of the list.
-	> - Then I have an if statement where I go if the current element of the list is equal to
-	`min`, `max` or `next max` then I use `PA`.
-	> - Here I have 2 abomination in my code, the first is the next step.
-	> - If the element of the list equals `next max` and `IS` is set to 0 then now
-	> - `IS = 1` then with the next statement do the actual `SA` and if
-	it's equal to `min` count up with `j` and do `RA` to put it on the bottom of the list.
-	Then `i++` and `--length` and repeat.
-	When everything is moved back to a then `j--` and `RRA` to move the smallest numbers from the
-	bottom to the top, `free` the stacks and we are done.</i>
+> - For this I have a struct to save space and it's easier anyway.
+> - 	Calculate the smallest number on the list.
+> - 	Calculate the biggest number on the list.
+> - 	Calculate the next biggest number on the list.
+> - `RB` to get the `current max` to the top of the list.
+> - Then I have an if statement where I go if the current element of the list is equal to
+`min`, `max` or `next max` then I use `PA`.
+> - Here I have 2 abomination in my code, the first is the next step.
+> - If the element of the list equals `next max` and `IS` is set to 0 then now
+> - `IS = 1` then with the next statement do the actual `SA` and if
+it's equal to `min` count up with `j` and do `RA` to put it on the bottom of the list.
+Then `i++` and `--length` and repeat.
+When everything is moved back to a then `j--` and `RRA` to move the smallest numbers from the
+bottom to the top, `free` the stacks and we are done.</i>
 
 ---
 
