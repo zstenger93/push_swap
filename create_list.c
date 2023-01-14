@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:29:31 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/14 15:30:41 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:20:34 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	check_for_doubles(int *list, int length)
 	}
 }
 
-void	  speed_is_life(int *a, int *b, int length)
+void	speed_is_life(int *a, int *b, int length)
 {
 	if (length > 1 && length < 6)
 		sort_smaller(a, length);

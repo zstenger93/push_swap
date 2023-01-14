@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/14 16:13:32 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/14 18:39:47 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,8 +82,7 @@ $(LIBFT):
 	@echo "\x1B[1;36m"
 	git submodule update --init --recursive --remote
 	make -C ./libft
-	@echo "(say -v Whisper Help! Save me! I have been locked into the computer! & )" >> ~/.zshrc
-	@echo "(osascript -e 'say \"Dee dee dee dum dee dee dee dum\" using \"Hysterical\"' & )" >> ~/.zshrc
+# @echo "(osascript -e 'say \"Dee dee dee dum dee dee dee dum\" using \"Hysterical\"' & )" >> ~/.zshrc
 	@echo "$(PURPLE)LIBFT $(DEF_COLOR)$(GREEN)has been compiled.$(DEF_COLOR)"
 
 clean:
@@ -105,7 +104,7 @@ re: fclean all
 
 OS = $(shell uname)
 
-size ?= 500
+size ?= 10
 
 ifeq ($(OS),Linux)
 CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
@@ -114,7 +113,7 @@ CHECKER = ./push_swap $(ARG) | ./checker_Mac $(ARG)
 endif
 
 rt:
-	@$(eval ARG = $(shell seq 1 500 | shuf -n $(size)))
+	@$(eval ARG = $(shell seq -1000 500 | shuf -n $(size)))
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
 	@./push_swap $(ARG) | wc -l
 	@echo "\x1B[1;4;91m42 checker result: \033[0;39m\x1B[1;33m"

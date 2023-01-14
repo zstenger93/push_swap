@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/14 13:52:30 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:55:55 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,9 @@ int		is_pivot_here(int *list, int length, int mid);
 void	sort_to_a(int *list, int b_length);
 
 //checker
-char	*read_terminal(int argc, char **argv);
+char	*read_terminal(int argc, char **argv, char *operation_list);
 void	is_valid_operation(char *operation, char *operation_list);
+void	execute_operations(char *operation_list, int *a, int *b, int b_len);
+char	*next_operation(char *operation_list);
 
 #endif

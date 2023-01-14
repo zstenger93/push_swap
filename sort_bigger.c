@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/14 12:06:46 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:36:42 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	calculation(int *list, int mid, int b_length, int length)
 	}
 	if (length < 157)
 	{
-		if (smaller == b_length / 2)
+		if (smaller == b_length / 5)
 			return (1);
 	}
 	else if (length > 156)
