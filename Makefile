@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/13 19:11:29 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/14 11:28:25 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 DEF_COLOR = \033[0;39m
-RED = \033[1;91m
+RED = \033[1;4;91m
 GREEN = \033[4;92m
 CYAN = \033[1;96m
 YELLOW = \033[1;33m
@@ -74,6 +74,7 @@ $(BONUS_NAME): $(LIBFT) $(BONUS_OBJS) $(INC)
 	@echo "$(PURPLE)$(NAME) $(DEF_COLOR)$(GREEN)Bonus compiling done.$(DEF_COLOR)"
 
 %.o : %.c
+	@echo "\x1B[1;36m"
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
@@ -84,17 +85,18 @@ $(LIBFT):
 	@echo "$(PURPLE)LIBFT $(DEF_COLOR)$(GREEN)has been compiled.$(DEF_COLOR)"
 
 clean:
+	@echo "$(RED)Deleting objects.$(DEF_COLOR)"
 	@echo "\x1B[1;36m"
 	$(RM) $(OBJS) $(BONUS_OBJS)
 	make clean -C ./libft
-	@echo "$(RED)Object files have been successfully removed!$(DEF_COLOR)"
+	@echo "$(RED)Object files have been successfully removed!\n$(DEF_COLOR)"
 
 fclean: clean
-	@echo "$(RED)Deleting objects.$(DEF_COLOR)"
+	@echo "$(RED)Deleting objects, executables and compiled libraries.$(DEF_COLOR)"
 	@echo "\x1B[1;36m"
 	$(RM) $(NAME) $(BONUS_NAME)
 	make fclean -C ./libft
-	@echo "$(RED)All .o & .a files have been removed.$(DEF_COLOR)"
+	@echo "$(RED)\nAll executable, .o & .a files have been removed.$(DEF_COLOR)"
 
 re: fclean all
 	@echo "$(RED)Files have been cleaned and project has been rebuilt!$(DEF_COLOR)"
