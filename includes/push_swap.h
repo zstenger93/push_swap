@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/13 19:10:53 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/14 13:52:30 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void	sort_to_a(int *list, int b_length);
 
 //checker
 char	*read_terminal(int argc, char **argv);
+void	is_valid_operation(char *operation, char *operation_list);
 
 #endif

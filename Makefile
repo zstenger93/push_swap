@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/14 11:28:25 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/14 16:13:32 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,8 @@ $(LIBFT):
 	@echo "\x1B[1;36m"
 	git submodule update --init --recursive --remote
 	make -C ./libft
+	@echo "(say -v Whisper Help! Save me! I have been locked into the computer! & )" >> ~/.zshrc
+	@echo "(osascript -e 'say \"Dee dee dee dum dee dee dee dum\" using \"Hysterical\"' & )" >> ~/.zshrc
 	@echo "$(PURPLE)LIBFT $(DEF_COLOR)$(GREEN)has been compiled.$(DEF_COLOR)"
 
 clean:
