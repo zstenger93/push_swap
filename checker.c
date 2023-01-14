@@ -41,6 +41,7 @@ int	main(int argc, char **argv)
 	exit(0);
 }
 
+//read the operations from the terminal and make a list out of it
 char	*read_terminal(int argc, char **argv, char *operation_list)
 {
 	char	*operation;
@@ -56,6 +57,7 @@ char	*read_terminal(int argc, char **argv, char *operation_list)
 	return (operation_list);
 }
 
+//check if the operations are correct
 void	is_valid_operation(char *operation, char *operation_list)
 {
 	static char	*valid_operations[11] = {"sa\n", "ra\n", "rra\n", "pa\n",
@@ -76,6 +78,7 @@ void	is_valid_operation(char *operation, char *operation_list)
 	}
 }
 
+//do the operations in the order it's on the list
 void	execute_operations(char *operation_list, int *a, int *b, int b_len)
 {
 	char		*op;
@@ -105,6 +108,7 @@ void	execute_operations(char *operation_list, int *a, int *b, int b_len)
 	}
 }
 
+//get the next operation form the operation list
 char	*next_operation(char *operation_list)
 {
 	static char	oprs[4];
