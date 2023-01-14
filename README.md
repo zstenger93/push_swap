@@ -47,7 +47,8 @@
 	When we are out of smaller numbers than pivot && there are more than 5 element left on the list,
 	we get another pivot and repeat until only 5 number remains.
 
-	When it's finished, the remaining 5 number on stack `A` is being sorted which are the 5 biggest number.
+	When it's finished, the remaining 5 number on stack `A` is being sorted
+	which are the 5 biggest number.
 	Afterwards we start pushing back from `B` to `A` with `sort_to_a` with the following steps.
 
 	For this I have a struct to save space and it's easier anyway.
