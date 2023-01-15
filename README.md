@@ -157,9 +157,13 @@ is incorrectly formatted.</i>
 ```shell
 $ make rt
 ```
-> - Or you can run `make rt` to run a random test with my own checker:
+> - Or you can run `make mrt` to run a random test with my own checker:
 ```shell
 $ make mrt
+```
+> - Or you can run both together with `make rtmrt`:
+```shell
+$ make rtmrt
 ```
 > - In case it says shuf is an unknown command:
 ```shell
