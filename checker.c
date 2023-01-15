@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 15:42:23 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:47:11 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	main(int argc, char **argv)
 	int		*b;
 	char	*operation_list;
 
+	if (argc < 2)
+		return (0);
 	operation_list = (char *)malloc(1);
 	*operation_list = 0;
 	operation_list = read_terminal(operation_list);
