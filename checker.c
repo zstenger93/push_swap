@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 11:12:55 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 13:58:38 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 
 	operation_list = (char *)malloc(1);
 	*operation_list = 0;
-	operation_list = read_terminal(argc, argv, operation_list);
+	operation_list = read_terminal(operation_list);
 	argc = list_size(argc, argv);
 	a = (int *) malloc((argc) * sizeof(int));
 	b = (int *) malloc((argc) * sizeof(int));
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 }
 
 //read the operations from the terminal and make a list out of it
-char	*read_terminal(int argc, char **argv, char *operation_list)
+char	*read_terminal(char *operation_list)
 {
 	char	*operation;
 
@@ -60,6 +60,7 @@ void	is_valid_operation(char *operation, char *operation_list)
 		"sb\n", "rb\n", "rrb\n", "pb\n", "rrr\n", "ss\n", "rr\n"};
 	int			i;
 
+	i = 0;
 	if ((ft_strlen(operation) == 3) || ft_strlen(operation) == 4)
 	{
 		while (i < 11)

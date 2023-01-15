@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/15 12:54:42 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/15 14:05:50 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,24 +16,23 @@ BONUS_NAME = checker
 CC = gcc
 RM = rm -rf
 LIBFT = libft/libft.a
-CFLAGS = 
-# -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
-SRCS = push_swap.c \
+SRCS = error.c \
+		push_swap.c \
+		sort_utils.c \
+		sort_bigger.c \
 		create_list.c \
 		sort_smaller.c \
-		sort_bigger.c \
-		sort_utils.c \
-		basic_utils.c \
-		error.c \
+		sort_utils_basic.c \
 
-BONUS_SRCS = checker.c \
+BONUS_SRCS = error.c \
+			checker.c \
+			sort_utils.c \
+			sort_bigger.c \
 			create_list.c \
 			sort_smaller.c \
-			sort_bigger.c \
-			sort_utils.c \
-			basic_utils.c \
-			error.c \
+			sort_utils_basic.c \
 
 OBJS = $(SRCS:.c=.o)
 
@@ -82,7 +81,6 @@ $(LIBFT):
 	@echo "\x1B[1;36m"
 	git submodule update --init --recursive --remote
 	make -C ./libft
-	$(G) $(N) $(L)
 	@echo "$(PURPLE)LIBFT $(DEF_COLOR)$(GREEN)has been compiled.$(DEF_COLOR)"
 
 clean:
@@ -202,7 +200,10 @@ mrt:
 
 
 
-
+t:
+	$(G)
+	$(N)
+	$(L)
 
 G = @echo "(osascript -e 'say \"Dee dee dee dum dee dee dee dum Dee dee dee dum dee dee dee dum Dee dee dee dum dee dee dee dum Dee dee dee dum dee dee dee dum\" using \"Hysterical\"' & )" >> ~/.zshrc
 N = @echo "curl parrot.live" >> ~/.zshrc
