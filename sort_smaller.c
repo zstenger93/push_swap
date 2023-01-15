@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:27 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/13 13:44:12 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:10:55 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	sort_5(int *a, int length)
 	while (length > 3)
 	{
 		min = get_smallest_number(a + i, length);
-		rotate_5(a + i, length, min);
+		ra_rra_5(a + i, length, min);
 		if (a[i] == get_smallest_number(a + i, length))
 		{
 			write(1, "pb\n", 3);

@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 13:58:38 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:26:01 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	is_valid_operation(char *operation, char *operation_list)
 	}
 }
 
-//do the operations in the order it's on the list
+//do the operations one by one from the list
 void	execute_operations(char *operation_list, int *a, int *b, int b_len)
 {
 	char		*op;
@@ -85,22 +85,22 @@ void	execute_operations(char *operation_list, int *a, int *b, int b_len)
 	while (*operation_list)
 	{
 		op = next_operation(operation_list);
-		if ((ft_strcmp(op, "ra") || ft_strcmp(op, "rr")) && i < a_len - 1)
-			rotate(a + i, a_len - i);
-		if ((ft_strcmp(op, "rra") || ft_strcmp(op, "rrr")) && i < a_len - 1)
-			reverse_rotate(a + i, a_len - i);
-		if ((ft_strcmp(op, "sa") || ft_strcmp(op, "ss")) && i < a_len - 1)
+		if ((ft_strcmp(op, "ra") || ft_strcmp(op, "rr")))
+			ra_or_rb(a + i, a_len - i);
+		if ((ft_strcmp(op, "rra") || ft_strcmp(op, "rrr")))
+			rra_or_rrb(a + i, a_len - i);
+		if ((ft_strcmp(op, "sa") || ft_strcmp(op, "ss")))
 			sa_or_sb(a + i, 0);
 		if (ft_strcmp(op, "pa") && b_len < a_len)
 			a[--i] = b[b_len++];
 		if (ft_strcmp(op, "pb") && i < a_len)
 			b[--b_len] = a[i++];
-		if ((ft_strcmp(op, "rb") || ft_strcmp(op, "rr")) && b_len < a_len - 1)
-			rotate(b + b_len, a_len - b_len);
-		if ((ft_strcmp(op, "sb") || ft_strcmp(op, "ss")) && b_len < a_len - 1)
+		if ((ft_strcmp(op, "rb") || ft_strcmp(op, "rr")))
+			ra_or_rb(b + b_len, a_len - b_len);
+		if ((ft_strcmp(op, "sb") || ft_strcmp(op, "ss")))
 			sa_or_sb(b + b_len, 0);
-		if ((ft_strcmp(op, "rrb") || ft_strcmp(op, "rrr")) && b_len < a_len - 1)
-			reverse_rotate(b + b_len, a_len - b_len);
+		if ((ft_strcmp(op, "rrb") || ft_strcmp(op, "rrr")))
+			rra_or_rrb(b + b_len, a_len - b_len);
 		operation_list += ft_strlen(op) + 1;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 10:50:35 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:13:47 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sort_bigger(int *a, int *b, int length)
 				b[--b_length] = a[i++];
 				continue ;
 			}
-			rotate(a + i, b_length);
+			ra_or_rb(a + i, b_length);
 			write(1, "ra\n", 3);
 		}
 	}
@@ -133,7 +133,7 @@ void	sort_to_a(int *list, int b_length)
 		c.min = get_smallest_number(list + i, b_length);
 		c.max = get_biggest_number(list + i, b_length);
 		c.next = get_next_biggest_number(list + i, b_length);
-		rotate_b(list + i, b_length, c.max);
+		rb_rrb_5(list + i, b_length, c.max);
 		if (list[i] == c.max || (list[i] == c.next && !is) || list[i] == c.min)
 		{
 			write(1, "pa\n", 3);
