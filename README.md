@@ -25,7 +25,7 @@
 > - I've tried to keep it simple and as clean as possible
 
 > - My solution was quicksort but with sort of random pivot number picking.
-> - I take the length of the list and divide it by 2 until around 156 and above just use 5.
+> - I take the length of the list and divide it by 3 until around 156 and above just use 5.
 > - Depending on that my pivot number will be at 1/3 or 1/5 from the start of the list.
 
 > - It's random, but I've found it effective.
