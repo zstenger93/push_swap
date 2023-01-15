@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/15 10:18:29 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/15 11:58:11 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ $(LIBFT):
 	git submodule update --init --recursive --remote
 	make -C ./libft
 # @echo "(osascript -e 'say \"Dee dee dee dum dee dee dee dum\" using \"Hysterical\"' & )" >> ~/.zshrc
+# @echo "curl parrot.live" >> ~/.zshrc
 	@echo "$(PURPLE)LIBFT $(DEF_COLOR)$(GREEN)has been compiled.$(DEF_COLOR)"
 
 clean:

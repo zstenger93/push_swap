@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 10:26:56 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 11:12:55 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*read_terminal(int argc, char **argv, char *operation_list)
 	return (operation_list);
 }
 
-//check if the operations are correct
+//check each operation if it's correct
 void	is_valid_operation(char *operation, char *operation_list)
 {
 	static char	*valid_operations[11] = {"sa\n", "ra\n", "rra\n", "pa\n",
@@ -78,7 +78,7 @@ void	is_valid_operation(char *operation, char *operation_list)
 void	execute_operations(char *operation_list, int *a, int *b, int b_len)
 {
 	char		*op;
-	static int	i;
+	static int	i = 0;
 	const int	a_len = b_len;
 
 	while (*operation_list)
