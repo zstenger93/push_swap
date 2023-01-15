@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/14 18:39:47 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/15 10:18:29 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,12 +104,14 @@ re: fclean all
 
 OS = $(shell uname)
 
-size ?= 10
+size ?= 100
 
 ifeq ($(OS),Linux)
 CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
+MCHECKER = ./push_swap $(ARG) | ./checker $(ARG)
 else
 CHECKER = ./push_swap $(ARG) | ./checker_Mac $(ARG)
+MCHECKER = ./push_swap $(ARG) | ./checker $(ARG)
 endif
 
 rt:
@@ -119,8 +121,15 @@ rt:
 	@echo "\x1B[1;4;91m42 checker result: \033[0;39m\x1B[1;33m"
 	$(CHECKER)
 
+mrt:
+	@$(eval ARG = $(shell seq -1000 500 | shuf -n $(size)))
+	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
+	@./push_swap $(ARG) | wc -l
+	@echo "\x1B[1;4;91m42 checker result: \033[0;39m\x1B[1;33m"
+	$(MCHECKER)
+
 # if it says no shuf command found:
 # copypaste and run:
 # brew install coreutils
 
-.PHONY: all bonus clean fclean re rt
+.PHONY: all bonus clean fclean re rt mrt

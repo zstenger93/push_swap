@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/14 19:06:21 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 10:26:56 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,15 @@ int	main(int argc, char **argv)
 	operation_list = (char *)malloc(1);
 	*operation_list = 0;
 	operation_list = read_terminal(argc, argv, operation_list);
-	printf("%s", operation_list);
 	argc = list_size(argc, argv);
 	a = (int *) malloc((argc) * sizeof(int));
 	b = (int *) malloc((argc) * sizeof(int));
 	create_list(argc, a, argv);
 	execute_operations(operation_list, a, b, argc);
-	int i = 0;
-	while (i < argc)
-		printf("%d ", a[i++]);
 	if (list_is_in_order(a, argc) == 1)
 		write(1, "\x1B[32mOK\n", 8);
 	else if (list_is_in_order(a, argc) == 0)
-		printf("\nWHAT THE FUCK\n");
+		printf("\x1B[32mKO\n");
 	free(a);
 	free(b);
 	free(operation_list);

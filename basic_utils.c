@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/14 18:51:10 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 10:31:02 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	list_size(int argc, char **argv)
 	return (length);
 }
 
+//cannot check ->0<- you dumb
 int	list_is_in_order(int *list, int length)
 {
 	int	i;
@@ -52,12 +53,7 @@ int	list_is_in_order(int *list, int length)
 	i = 0;
 	while (i < length)
 	{
-		if (i == 0)
-		{
-			i++;
-			i--;
-		}
-		if (list[i - 1] > list[i])
+		if (i != 0 && list[i - 1] > list[i])
 			return (0);
 		i++;
 	}

@@ -26,7 +26,7 @@
 
 > - My solution was quicksort but with sort of random pivot number picking.
 > - I take the length of the list and divide it by 2 until around 156 and above just use 5.
-> - Depending on that my pivot number will be at 1/2 or 1/5 from the start of the list.
+> - Depending on that my pivot number will be at 1/3 or 1/5 from the start of the list.
 
 > - It's random, but I've found it effective.
 > - I've been testing for a while t get the best option and this is the best I could get so far.
@@ -40,7 +40,7 @@ a simple `RRA` would be enough, but still complies with the requirements very we
 > - `Sorting bigger` lists is where the algorythm kicks in.
 > - So first I have a while loop with the `length` of the list.
 until it's bigger than five I get my `MID` which will be the pivot number so not exactly mid.
-when the element of the list is equal of the `length / 2` or `length / 5` depending on the
+when the element of the list is equal of the `length / 3` or `length / 5` depending on the
 length of the list.
 > - After I've found the pivot number, I take it in a while statement, until `pivot && length > 5`
 > - I sort the list to stack `B`. if it's smaller than the pivot `PB` else `RA`/
@@ -153,9 +153,13 @@ is incorrectly formatted.</i>
 
 ### 📋 Testing
 
-> - You can just run `make rt` to run a random test:
+> - You can run `make rt` to run a random test with the school checker:
 ```shell
 $ make rt
+```
+> - Or you can run `make rt` to run a random test with my own checker:
+```shell
+$ make mrt
 ```
 > - In case it says shuf is an unknown command:
 ```shell
