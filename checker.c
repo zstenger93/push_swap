@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 15:26:01 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:40:05 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int	main(int argc, char **argv)
 {
-	int	*a;
-	int	*b;
+	int		*a;
+	int		*b;
 	char	*operation_list;
-
 
 	operation_list = (char *)malloc(1);
 	*operation_list = 0;
@@ -37,7 +36,7 @@ int	main(int argc, char **argv)
 	exit(0);
 }
 
-//read the operations from the terminal and make a list out of it
+//read the operations from the terminal, make and return a list out of it
 char	*read_terminal(char *operation_list)
 {
 	char	*operation;

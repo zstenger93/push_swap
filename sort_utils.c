@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:58 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 15:12:31 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:39:37 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ra_rra_5(int *list, int length, int max)
 	}
 }
 
+//shift up, the first element becomes the last
 void	ra_or_rb(int *list, int length)
 {
 	int	temp;
@@ -49,6 +50,7 @@ void	ra_or_rb(int *list, int length)
 	list[i - 1] = temp;
 }
 
+//shift down, last element becomes the first
 void	rra_or_rrb(int *list, int length)
 {
 	int	temp;
@@ -84,6 +86,7 @@ void	rb_rrb_5(int *list, int b_length, int max)
 	}
 }
 
+//swap the first 2 elements
 void	sa_or_sb(int *list, int argc)
 {
 	argc = list[0];

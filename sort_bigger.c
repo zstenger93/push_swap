@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 15:13:47 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:38:06 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	pivot_finder(int *list, int b_length, int length)
 	i = 0;
 	while (i < b_length)
 	{
-		if (calculation(list, list[i], b_length, length))
+		if (calculate_position(list, list[i], b_length, length))
 			return (list[i]);
 		i++;
 	}
@@ -70,7 +70,7 @@ not the most efficient coz now we pick a random number but cannot
 figure out other way.
 the best would be to pick middle number of the ordered list
 */
-int	calculation(int *list, int mid, int b_length, int length)
+int	calculate_position(int *list, int mid, int b_length, int length)
 {
 	int	smaller;
 	int	i;
