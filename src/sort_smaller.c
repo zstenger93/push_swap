@@ -6,11 +6,11 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:27 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 15:10:55 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 18:51:48 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 2 numbers -> switch them

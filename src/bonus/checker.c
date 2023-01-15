@@ -6,11 +6,11 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 15:47:11 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 18:54:00 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	main(int argc, char **argv)
 {

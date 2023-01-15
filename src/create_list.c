@@ -6,11 +6,11 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:29:31 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/14 18:20:34 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 18:51:25 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	create_list(int length, int *list_a, char **argv)
 {
@@ -29,7 +29,7 @@ void	create_list(int length, int *list_a, char **argv)
 				i++;
 			if (ft_isdigit(argv[j][i]) || argv[j][i] == '-'
 				|| argv[j][i] == '+')
-				list_a[index++] = ft_atoi(&argv[j][i]);
+				list_a[index++] = ft_atoi2(&argv[j][i]);
 			if (argv[j][i] == '-' || argv[j][i] == '+')
 				i++;
 			while (ft_isdigit(argv[j][i]))

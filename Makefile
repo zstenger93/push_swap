@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/15 15:47:55 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/15 18:49:26 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,21 +18,19 @@ RM = rm -rf
 LIBFT = libft/libft.a
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = error.c \
-		push_swap.c \
-		sort_utils.c \
-		sort_bigger.c \
-		create_list.c \
-		sort_smaller.c \
-		sort_utils_basic.c \
+SRCS = src/push_swap.c \
+		src/sort_utils.c \
+		src/sort_bigger.c \
+		src/create_list.c \
+		src/sort_smaller.c \
+		src/sort_utils_basic.c \
 
-BONUS_SRCS = error.c \
-			checker.c \
-			sort_utils.c \
-			sort_bigger.c \
-			create_list.c \
-			sort_smaller.c \
-			sort_utils_basic.c \
+BONUS_SRCS = src/sort_utils.c \
+			src/sort_bigger.c \
+			src/create_list.c \
+			src/sort_smaller.c \
+			src/bonus/checker.c \
+			src/sort_utils_basic.c \
 
 OBJS = $(SRCS:.c=.o)
 

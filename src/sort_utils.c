@@ -6,11 +6,11 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:58 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 15:39:37 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 18:51:59 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 /*
 simply rotate the small list of numbers between 3-5

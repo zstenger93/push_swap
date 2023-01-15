@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 15:47:19 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/15 18:41:11 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "../libft/libft.h"
+# define MIN "-2147483648"
+# define MAX "2147483647"
 
 typedef struct s_calculation
 {
