@@ -44,7 +44,7 @@ when the element of the list is equal of the `length / 3` or `length / 5` depend
 length of the list.
 > - Here I have a check if the list we are looking in is smaller than 11 we change to back 1/5
 when I do the rest with 1/3 otherwise it messes up the last 6 rotation for some reason and the
-5th and 6th number is switched \_O_/ -(wtf)
+5th and 6th number is switched..
 
 > - After I've found the pivot number, I take it in a while statement, until `pivot && length > 5`
 > - I sort the list to stack `B`. if it's smaller than the pivot `PB` else `RA`/
