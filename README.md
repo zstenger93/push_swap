@@ -25,7 +25,7 @@
 > - I've tried to keep it simple and as clean as possible
 
 > - My solution was quicksort but with sort of random pivot number picking.
-> - I take the length of the list and divide it by 3 until around 156 and above just use 5.
+> - I take the length of the list and divide it by 3 until around 150 and above just use 5.
 > - Depending on that my pivot number will be at 1/3 or 1/5 from the start of the list.
 
 > - It's random, but I've found it effective.
@@ -42,6 +42,10 @@ a simple `RRA` would be enough, but still complies with the requirements very we
 until it's bigger than five I get my `MID` which will be the pivot number so not exactly mid.
 when the element of the list is equal of the `length / 3` or `length / 5` depending on the
 length of the list.
+> - Here I have a check if the list we are looking in is smaller than 11 we change to back 1/5
+when I do the rest with 1/3 otherwise it messes up the last 6 rotation for some reason and the
+5th and 6th number is switched \_O_/ -(wtf)
+
 > - After I've found the pivot number, I take it in a while statement, until `pivot && length > 5`
 > - I sort the list to stack `B`. if it's smaller than the pivot `PB` else `RA`/
 > - When we are out of smaller numbers than pivot && there are more than 5 element left on the list,
@@ -58,12 +62,14 @@ which are the 5 biggest number.
 > - `RB` to get the `current max` to the top of the list.
 > - Then I have an if statement where I go if the current element of the list is equal to
 `min`, `max` or `next max` then I use `PA`.
+
 > - Here I have 2 abomination in my code, the first is the next step.
 > - If the element of the list equals `next max` and `IS` is set to 0 then now
 > - `IS = 1` then with the next statement do the actual `SA` and if
 it's equal to `min` count up with `j` and do `RA` to put it on the bottom of the list.
 Then `i++` and `--length` and repeat.
-When everything is moved back to a then `j--` and `RRA` to move the smallest numbers from the
+
+> - When everything is moved back to a then `j--` and `RRA` to move the smallest numbers from the
 bottom to the top, `free` the stacks and we are done.</i>
 
 ---
