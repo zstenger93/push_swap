@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 18:51:38 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:31:17 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ int	pivot_finder(int *list, int b_length, int length)
 }
 
 /*
-counts the elements in the list that are smaller than the current MID
-if this count equal to 1/2 or 1/5 of the list then it will be picked as pivot
-kinda random number 1/2 or 1/5 of the way thru the list
+counts the elements in the list that are smaller than the current MID(PIVOT)
+if this count equal to 1/3 or 1/5 of the list then it will be picked as pivot
+kinda random number 1/3 or 1/5 of the way thru the list
 not the most efficient coz now we pick a random number but cannot
 figure out other way.
 the best would be to pick middle number of the ordered list
@@ -83,14 +83,14 @@ int	calculate_position(int *list, int mid, int b_length, int length)
 			smaller++;
 		i++;
 	}
-	if (length < 157)
-	{
-		if (smaller == b_length / 3)
-			return (1);
-	}
-	else if (length > 156)
+	if (length > 149 || b_length < 11)
 	{
 		if (smaller == b_length / 5)
+			return (1);
+	}
+	else if (length < 150 && b_length > 10)
+	{
+		if (smaller == b_length / 3)
 			return (1);
 	}
 	return (0);
