@@ -175,6 +175,21 @@ $ brew install coreutils
 > - `seq 1 500` -> the range of the numbers the list elements will be randomly selected
 > - Don't pick too big range with this test because it will take forever to shuffle the range
 > - If you want to test with edge cases like `min` and `max int` by yourself as well then do it manually
+
+---
+
+### 📋 Visual testing
+
+> - This is a great visual tester:
+```shell
+$ git clone https://github.com/o-reo/push_swap_visualizer.git
+```
+> - Usage:
+```shell
+$ RTFM -> https://github.com/o-reo/push_swap_visualizer
+```
+
+> - For last but not least:
 ```shell
 $ Thank you for your pushing interest in this swapping.
 ```
