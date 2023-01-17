@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/16 15:08:55 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/17 10:39:47 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	calculate_position(int *list, int mid, int b_length, int length)
 	return (0);
 }
 
-//check if the element of the list is the pivot number or not
+//if there are smaller numbers than mid(pivot) it's good else not
 int	is_pivot_here(int *list, int length, int mid)
 {
 	int	i;
