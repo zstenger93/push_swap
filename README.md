@@ -24,12 +24,12 @@
 > <i>I'm not the the best with algorythms so maybe this repo won't be your best choice, but
 > - I've tried to keep it simple and as clean as possible
 
-> - My solution was quicksort but with sort of random pivot number picking.
-> - I take the length of the list and divide it by 3 until around 150 and above just use 5.
+> - My solution was `quicksort` but with sort of random pivot number picking.
+> - I take the `length` of the list and divide it by `3` until around 150 and above just use `5`.
 > - Depending on that my pivot number will be at 1/3 or 1/5 from the start of the list.
 
-> - It's random, but I've found it effective.
-> - I've been testing for a while t get the best option and this is the best I could get so far.
+> - It's random, but I've found it fairly effective.
+> - I've been testing for a while to get the best option and this is what I could achieve.
 
 > - With `small lists` it is the usual as for most approach, with  2 number just `swap`,
 then `sort_3` with the 5 possible variations and then `sort_5` with pushing the smallest
