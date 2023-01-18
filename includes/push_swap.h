@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/18 12:14:01 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/18 13:29:46 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	rra_or_rrb(int *list, int length);
 void	ra_or_rra(int *list, int length, int max);
 void	rb_or_rrb(int *list, int b_length, int max);
 
-//finding nemo, I mean numbers
+//min, max and next max
 int		get_biggest_number(int *list, int length);
 int		get_smallest_number(int *list, int length);
 int		get_next_biggest_number(int *list, int length);
