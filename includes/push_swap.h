@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/16 14:13:51 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/18 11:45:06 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	sort_3(int *a);
 void	sort_5(int *a, int length);
 
 //ra, rb, rr, rra, rrb, rrr, sa, sb, ss
-void	ra_rra_5(int *list, int length, int max);
+void	ra_or_rra(int *list, int length, int max);
 void	ra_or_rb(int *list, int length);
 void	rra_or_rrb(int *list, int length);
-void	rb_rrb_5(int *list, int b_length, int max);
-void	sa_or_sb(int *list, int argc);
+void	rb_or_rrb(int *list, int b_length, int max);
+void	sa_or_sb(int *list, int swap);
 
 //finding nemo, I mean numbers
 int		get_smallest_number(int *list, int length);

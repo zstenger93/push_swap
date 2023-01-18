@@ -6,19 +6,16 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/17 10:39:47 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/18 11:59:18 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /*
-bigger list sorting
-get the pivot number what I will call MID
-while I have the position of the PIVOT(MID) compare the list elements to it,
-if they are smaller use PB(push to B) else RA(rotate A)
-after we are done with pushing to B, sort the remaining 5 in A with sort_5
-then sort back the rest with sort_to_a
+get the pivot number what I will call MID. While I've it's position compare the
+list elements to it, if they are smaller PB else RA and if no more, get the
+next pivot number. Then sort the remaining 5 in A and sort back the rest to A
 */
 void	sort_bigger(int *a, int *b, int length)
 {
@@ -47,7 +44,7 @@ void	sort_bigger(int *a, int *b, int length)
 	sort_to_a(b + b_length, length - b_length);
 }
 
-//goes thru the list to find the pivot number I will call as MID
+//goes thru the list to find the pivot number
 int	pivot_finder(int *list, int b_length, int length)
 {
 	int	i;
@@ -63,12 +60,8 @@ int	pivot_finder(int *list, int b_length, int length)
 }
 
 /*
-counts the elements in the list that are smaller than the current MID(PIVOT)
-if this count equal to 1/3 or 1/5 of the list then it will be picked as pivot
-kinda random number 1/3 or 1/5 of the way thru the list
-not the most efficient coz now we pick a random number but cannot
-figure out other way.
-the best would be to pick middle number of the ordered list
+counts the elements in the list that are smaller than the picked MID(PIVOT)
+if this count equal to 1/3 or 1/5 of the list then it will be the pivot.
 */
 int	calculate_position(int *list, int mid, int b_length, int length)
 {
@@ -112,20 +105,15 @@ int	is_pivot_here(int *list, int length, int mid)
 }
 
 /*
-rotate B until the biggest number will be on top then push it to A
-reapeat with next biggest number
-if the current element of the list is equal to MAX, NEXT MAX or MIN,
-apply the correct operation, PA, SA, RA
-j and is for saving space fd will be always 1 to print the operations
-the last while loop when there is nothing left in B we will put the
-remaining min numbers from the bottom of A to the top
-(also for saving private ryan, i mean space..)
+rotate B to get MAX on top -> PA -> reapeat with next biggest number
+if list[i] = MAX, NEXT MAX or MIN, apply the correct operation, PA, SA or RA
+J and FD for saving space when nothing left in B -> RRA the min numbers to top
 */
 void	sort_to_a(int *list, int b_length)
 {
 	static int		i = 0;
 	static int		j = 0;
-	static int		is = 0;
+	static int		fd = 0;
 	t_calculation	c;
 
 	while (b_length > 0)
@@ -133,14 +121,14 @@ void	sort_to_a(int *list, int b_length)
 		c.min = get_smallest_number(list + i, b_length);
 		c.max = get_biggest_number(list + i, b_length);
 		c.next = get_next_biggest_number(list + i, b_length);
-		rb_rrb_5(list + i, b_length, c.max);
-		if (list[i] == c.max || (list[i] == c.next && !is) || list[i] == c.min)
+		rb_or_rrb(list + i, b_length, c.max);
+		if (list[i] == c.max || (list[i] == c.next && !fd) || list[i] == c.min)
 		{
 			write(1, "pa\n", 3);
-			if (list[i] == c.next && is == 0)
-				is = 1;
-			else if (is && list[i] == c.max)
-				write(is--, "sa\n", 3);
+			if (list[i] == c.next && fd == 0)
+				fd = 1;
+			else if (fd && list[i] == c.max)
+				write(fd--, "sa\n", 3);
 			else if (list[i] == c.min)
 				write(++j * 0 + 1, "ra\n", 3);
 			i += (--b_length * 0) + 1;

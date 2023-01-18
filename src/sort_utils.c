@@ -6,17 +6,13 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:58 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 18:51:59 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/18 11:44:56 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/*
-simply rotate the small list of numbers between 3-5
-if it's closer to top, use RA else use RRA
-*/
-void	ra_rra_5(int *list, int length, int max)
+void	ra_or_rra(int *list, int length, int max)
 {
 	int	i;
 
@@ -61,11 +57,7 @@ void	rra_or_rrb(int *list, int length)
 	list[length] = temp;
 }
 
-/*
-B stack rotate
-if it's closer to top, use RB else use RRB
-*/
-void	rb_rrb_5(int *list, int b_length, int max)
+void	rb_or_rrb(int *list, int b_length, int max)
 {
 	int	i;
 
@@ -86,10 +78,9 @@ void	rb_rrb_5(int *list, int b_length, int max)
 	}
 }
 
-//swap the first 2 elements
-void	sa_or_sb(int *list, int argc)
+void	sa_or_sb(int *list, int swap)
 {
-	argc = list[0];
+	swap = list[0];
 	list[0] = list[1];
-	list[1] = argc;
+	list[1] = swap;
 }

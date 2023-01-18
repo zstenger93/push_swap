@@ -6,16 +6,12 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 18:51:54 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/18 11:27:49 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/*
-get the length of the list while calculating only numbers,
-not the -, +, space, tab, and if it's none of them, return an error
-*/
 int	list_size(int argc, char **argv)
 {
 	int			length;
@@ -45,7 +41,6 @@ int	list_size(int argc, char **argv)
 	return (length);
 }
 
-//cannot check ->0<- you dumb
 int	list_is_in_order(int *list, int length)
 {
 	int	i;
