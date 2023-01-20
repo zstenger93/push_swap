@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/18 13:29:46 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:25:36 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	sort_to_a(int *list, int b_length);
 void	sort_bigger(int *a, int *b, int length);
 int		is_pivot_here(int *list, int length, int mid);
 int		pivot_finder(int *list, int b_length, int length);
+int		pick_divider(int length, int a_length, int smaller);
 int		calculate_position(int *list, int mid, int b_length, int length);
 
 //checker

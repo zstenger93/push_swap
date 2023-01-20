@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/18 11:59:18 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:24:13 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,38 +21,38 @@ void	sort_bigger(int *a, int *b, int length)
 {
 	int	i;
 	int	mid;
-	int	b_length;
+	int	a_length;
 
-	b_length = length;
+	a_length = length;
 	i = 0;
-	while (b_length > 5)
+	while (a_length > 5)
 	{
-		mid = pivot_finder(a + i, b_length, length);
-		while (is_pivot_here(a + i, b_length, mid) && b_length > 5)
+		mid = pivot_finder(a + i, a_length, length);
+		while (is_pivot_here(a + i, a_length, mid) && a_length > 5)
 		{
 			if (a[i] < mid)
 			{
 				write(1, "pb\n", 3);
-				b[--b_length] = a[i++];
+				b[--a_length] = a[i++];
 				continue ;
 			}
-			ra_or_rb(a + i, b_length);
+			ra_or_rb(a + i, a_length);
 			write(1, "ra\n", 3);
 		}
 	}
-	sort_5(a + i, b_length);
-	sort_to_a(b + b_length, length - b_length);
+	sort_5(a + i, a_length);
+	sort_to_a(b + a_length, length - a_length);
 }
 
 //goes thru the list to find the pivot number
-int	pivot_finder(int *list, int b_length, int length)
+int	pivot_finder(int *list, int a_length, int length)
 {
 	int	i;
 
 	i = 0;
-	while (i < b_length)
+	while (i < a_length)
 	{
-		if (calculate_position(list, list[i], b_length, length))
+		if (calculate_position(list, list[i], a_length, length))
 			return (list[i]);
 		i++;
 	}
@@ -63,43 +63,40 @@ int	pivot_finder(int *list, int b_length, int length)
 counts the elements in the list that are smaller than the picked MID(PIVOT)
 if this count equal to 1/3 or 1/5 of the list then it will be the pivot.
 */
-int	calculate_position(int *list, int mid, int b_length, int length)
+int	calculate_position(int *list, int mid, int a_length, int length)
 {
 	int	smaller;
 	int	i;
 
 	i = 0;
 	smaller = 0;
-	while (i < b_length)
+	while (i < a_length)
 	{
 		if (list[i] < mid)
 			smaller++;
 		i++;
 	}
-	if (length > 149 || b_length < 11)
-	{
-		if (smaller == b_length / 5)
-			return (1);
-	}
-	else if (length < 150 && b_length > 10)
-	{
-		if (smaller == b_length / 3)
-			return (1);
-	}
+	if (pick_divider(length, a_length, smaller) == 1)
+		return (1);
 	return (0);
 }
 
-//if there are smaller numbers than mid(pivot) it's good else not
-int	is_pivot_here(int *list, int length, int mid)
+int	pick_divider(int length, int a_length, int smaller)
 {
-	int	i;
-
-	i = 0;
-	while (i < length)
+	if (length > 250 && a_length > 250)
 	{
-		if (list[i] < mid)
+		if (smaller == a_length / 7)
 			return (1);
-		i++;
+	}
+	else if (length > 149 || a_length < 11)
+	{
+		if (smaller == a_length / 5)
+			return (1);
+	}
+	else if (length < 150 && a_length > 10)
+	{
+		if (smaller == a_length / 3)
+			return (1);
 	}
 	return (0);
 }

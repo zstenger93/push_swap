@@ -6,12 +6,18 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:29:31 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/18 13:35:04 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:24:59 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/*
+first loop goes thru the arguments one by one
+second loop goes thru each character of the current argument
+convert it with atoi and assign it to the current element of the list
+give a pointer to the start of the string 
+*/
 void	create_list(int length, int *list_a, char **argv)
 {
 	int	i;
@@ -27,8 +33,7 @@ void	create_list(int length, int *list_a, char **argv)
 		{
 			while (argv[j][i] == ' ' || argv[j][i] == '+')
 				i++;
-			if (ft_isdigit(argv[j][i]) || argv[j][i] == '-'
-				|| argv[j][i] == '+')
+			if (ft_isdigit(argv[j][i]) || argv[j][i] == '-')
 				list_a[index++] = ft_atoi2(&argv[j][i]);
 			if (argv[j][i] == '-' || argv[j][i] == '+')
 				i++;
@@ -66,4 +71,19 @@ void	speed_is_life(int *a, int *b, int length)
 		sort_smaller(a, length);
 	else if (length > 5)
 		sort_bigger(a, b, length);
+}
+
+//if there are smaller numbers than mid(pivot) it's good else not
+int	is_pivot_here(int *list, int a_length, int mid)
+{
+	int	i;
+
+	i = 0;
+	while (i < a_length)
+	{
+		if (list[i] < mid)
+			return (1);
+		i++;
+	}
+	return (0);
 }
