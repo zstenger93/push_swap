@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/20 16:12:28 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/21 11:51:19 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,6 +120,7 @@ MCHECKER = ./push_swap $(ARG) | ./checker $(ARG)
 endif
 
 # dont't put numbers too far from each other for the sequence
+# i told you not to... \_O_/
 rt:
 	@$(eval ARG = $(shell seq 1 500 | shuf -n $(size)))
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
@@ -148,74 +149,6 @@ rtmrt:
 # brew install coreutils
 
 .PHONY: all bonus clean fclean re rt mrt rtmrt
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 t:
 	$(L)

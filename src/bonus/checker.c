@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/15 18:54:00 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/21 11:48:53 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	exit(0);
 }
 
-//read the operations from the terminal, make and return a list out of it
+//read the operations from standard input, make and return a list out of it
 char	*read_terminal(char *operation_list)
 {
 	char	*operation;
@@ -76,7 +76,10 @@ void	is_valid_operation(char *operation, char *operation_list)
 	}
 }
 
-//do the operations one by one from the list
+/*
+executing the operations one by one on the lists and changing the length
+of the arrays depending on if it's PA or PB
+*/
 void	execute_operations(char *operation_list, int *a, int *b, int b_len)
 {
 	char		*op;
