@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/18 13:07:38 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/21 16:09:18 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	list_size(int argc, char **argv)
 			if (ft_isdigit(argv[j][i]))
 				length++;
 			else if (argv[j][i] != ' ' && argv[j][i] != '\t')
-				error();
+				return (ft_printf("\e[1;4;31mError!\e[0m\n"), 1);
 			while (ft_isdigit(argv[j][i]))
 				i++;
 			if (argv[j][i] && argv[j][i] != ' ' && argv[j][i] != '\t')
-				error();
+				return (ft_printf("\e[1;4;31mError!\e[0m\n"), 1);
 			while (argv[j][i] == '\t' || argv[j][i] == ' ')
 				i++;
 		}

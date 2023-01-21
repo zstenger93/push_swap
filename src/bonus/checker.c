@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/21 11:48:53 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/21 15:14:03 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,16 @@ void	is_valid_operation(char *operation, char *operation_list)
 	{
 		free(operation_list);
 		free(operation);
-		error();
+		ft_printf("\e[1;4;31mError!\e[0m\n");
+		exit(1);
 	}
 }
 
 /*
 executing the operations one by one on the lists and changing the length
 of the arrays depending on if it's PA or PB
+pa - a index decrese b index incrase
+pb - b index decrese a index incrase
 */
 void	execute_operations(char *operation_list, int *a, int *b, int b_len)
 {
@@ -95,9 +98,9 @@ void	execute_operations(char *operation_list, int *a, int *b, int b_len)
 			rra_or_rrb(a + i, a_len - i);
 		if (ft_strcmp(op, "sa") || ft_strcmp(op, "ss"))
 			sa_or_sb(a + i, 0);
-		if (ft_strcmp(op, "pa") && b_len < a_len)
+		if (ft_strcmp(op, "pa"))
 			a[--i] = b[b_len++];
-		if (ft_strcmp(op, "pb") && i < a_len)
+		if (ft_strcmp(op, "pb"))
 			b[--b_len] = a[i++];
 		if (ft_strcmp(op, "rb") || ft_strcmp(op, "rr"))
 			ra_or_rb(b + b_len, a_len - b_len);

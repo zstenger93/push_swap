@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/21 11:51:19 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/21 14:18:43 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,21 +122,21 @@ endif
 # dont't put numbers too far from each other for the sequence
 # i told you not to... \_O_/
 rt:
-	@$(eval ARG = $(shell seq 1 500 | shuf -n $(size)))
+	@$(eval ARG = $(shell seq 1 10000 | shuf -n $(size)))
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
 	@./push_swap $(ARG) | wc -l
 	@echo "\x1B[1;4;91m42 checker result: \033[0;39m\x1B[1;33m"
 	$(CHECKER)
 
 mrt:
-	@$(eval ARG = $(shell seq -1000 500 | shuf -n $(size)))
+	@$(eval ARG = $(shell seq 1 10000 | shuf -n $(size)))
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
 	@./push_swap $(ARG) | wc -l
 	@echo "\x1B[1;4;91mMy checker result: \033[0;39m\x1B[1;33m"
 	$(MCHECKER)
 
 rtmrt:
-	@$(eval ARG = $(shell seq -1000 500 | shuf -n $(size)))
+	@$(eval ARG = $(shell seq 1 10000 | shuf -n $(size)))
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
 	@./push_swap $(ARG) | wc -l
 	@echo "\x1B[1;4;91mMy checker result: \033[0;39m\x1B[1;33m"

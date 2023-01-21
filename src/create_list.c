@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 15:29:31 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/20 17:24:59 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/21 15:12:43 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	create_list(int length, int *list_a, char **argv)
 			while (argv[j][i] == ' ' || argv[j][i] == '+')
 				i++;
 			if (ft_isdigit(argv[j][i]) || argv[j][i] == '-')
-				list_a[index++] = ft_atoi2(&argv[j][i]);
+				list_a[index++] = ft_atoi2(&argv[j][i], list_a);
 			if (argv[j][i] == '-' || argv[j][i] == '+')
 				i++;
 			while (ft_isdigit(argv[j][i]))
@@ -58,7 +58,7 @@ void	check_for_doubles(int *list, int length)
 		while (i < length)
 		{
 			if (list[j] == list[i])
-				error();
+				error(list);
 			i++;
 		}
 		j++;
