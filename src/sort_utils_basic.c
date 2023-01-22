@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   basic_utils.c                                      :+:      :+:    :+:   */
+/*   sort_utils_basic.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/13 14:15:27 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:16:05 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-/*
-get the length of the list while calculating only numbers,
-not the -, +, space, tab, and if it's none of them, return an error
-*/
 int	list_size(int argc, char **argv)
 {
 	int			length;
@@ -33,11 +29,11 @@ int	list_size(int argc, char **argv)
 			if (ft_isdigit(argv[j][i]))
 				length++;
 			else if (argv[j][i] != ' ' && argv[j][i] != '\t')
-				error();
+				return (ft_printf("\e[1;4;31mError!\e[0m\n"), 1);
 			while (ft_isdigit(argv[j][i]))
 				i++;
 			if (argv[j][i] && argv[j][i] != ' ' && argv[j][i] != '\t')
-				error();
+				return (ft_printf("\e[1;4;31mError!\e[0m\n"), 1);
 			while (argv[j][i] == '\t' || argv[j][i] == ' ')
 				i++;
 		}
@@ -52,7 +48,9 @@ int	list_is_in_order(int *list, int length)
 	i = 0;
 	while (i < length)
 	{
-		if (list[i] < list[i - 1])
+		if (!list[i])
+			return (0);
+		else if (i != 0 && list[i - 1] > list[i])
 			return (0);
 		i++;
 	}
@@ -82,7 +80,7 @@ int	get_biggest_number(int *list, int length)
 
 	i = 0;
 	max = *list;
-	while (length--)
+	while (i < length)
 	{
 		if (max < list[i])
 			max = list[i];
@@ -91,6 +89,7 @@ int	get_biggest_number(int *list, int length)
 	return (max);
 }
 
+//if the 1st number == max then set next max to the second element
 int	get_next_biggest_number(int *list, int length)
 {
 	int	i;
@@ -100,9 +99,9 @@ int	get_next_biggest_number(int *list, int length)
 	i = 0;
 	max = get_biggest_number(list, length);
 	next_max = *list;
-	if (next_max == max)
+	if (length > 1 && next_max == max)
 		next_max = list[1];
-	while (length--)
+	while (i < length)
 	{
 		if (next_max < list[i] && list[i] != max)
 			next_max = list[i];

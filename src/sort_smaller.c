@@ -6,17 +6,12 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:27 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/13 13:44:12 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/21 14:30:49 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-/*
-2 numbers -> switch them
-3 numbers -> sort_3 on the 5 possible cases
-3 < numbers < 6 -> sort_5
-*/
 void	sort_smaller(int *a, int length)
 {
 	if (length == 2)
@@ -57,10 +52,6 @@ void	sort_3(int *a)
 		write(1, "rra\n", 4);
 }
 
-/*
-move the smallest number to stack B until we have 3 numbers left in A
-then use sort_3 on A and move back the numbers from B to the top of A
-*/
 void	sort_5(int *a, int length)
 {
 	int	min;
@@ -72,7 +63,7 @@ void	sort_5(int *a, int length)
 	while (length > 3)
 	{
 		min = get_smallest_number(a + i, length);
-		rotate_5(a + i, length, min);
+		ra_or_rra(a + i, length, min);
 		if (a[i] == get_smallest_number(a + i, length))
 		{
 			write(1, "pb\n", 3);
