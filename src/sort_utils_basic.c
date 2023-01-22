@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/21 16:09:18 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/22 11:35:54 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int	list_is_in_order(int *list, int length)
 	i = 0;
 	while (i < length)
 	{
-		if (i != 0 && list[i - 1] > list[i])
+		if (!list[i])
+			return (0);
+		else if (i != 0 && list[i - 1] > list[i])
 			return (0);
 		i++;
 	}

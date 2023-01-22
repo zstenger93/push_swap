@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/21 10:18:04 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/22 09:51:33 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 get the pivot number what I will call MID. While I've it's position compare the
 list elements to it, if they are smaller PB else RA and if no more, get the
 next pivot number. Then sort the remaining 5 in A and sort back the rest to A
+length of A decrese why B (i) incrase
 */
 void	sort_bigger(int *a, int *b, int length)
 {

@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/20 17:25:36 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/22 14:25:00 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,14 @@ int		calculate_position(int *list, int mid, int b_length, int length);
 //checker
 char	*read_terminal(char *operation_list);
 char	*next_operation(char *operation_list);
+void	result(char *operation_list, int length);
 void	is_valid_operation(char *operation, char *operation_list);
 void	execute_operations(char *operation_list, int *a, int *b, int b_len);
+void	grademe(int *list, char *operation_list, int length);
+void	two_or_three(int operation_count, int length);
+void	points(int operation_count, int length);
+void	fivehundred(int operation_count);
+void	hundred(int operation_count);
+void	five(int operation_count);
 
 #endif

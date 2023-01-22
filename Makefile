@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/21 14:18:43 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/22 14:28:56 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ BONUS_SRCS = src/sort_utils.c \
 			src/sort_bigger.c \
 			src/create_list.c \
 			src/sort_smaller.c \
+			src/bonus/result.c \
+			src/bonus/points.c \
 			src/bonus/checker.c \
 			src/sort_utils_basic.c \
 
@@ -109,7 +111,7 @@ re: fclean all
 
 OS = $(shell uname)
 
-size ?= 500
+size ?= 0
 
 ifeq ($(OS),Linux)
 CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)

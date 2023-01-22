@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/21 15:14:03 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/22 13:24:41 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,24 @@ int	main(int argc, char **argv)
 		return (0);
 	operation_list = (char *)malloc(1);
 	*operation_list = 0;
-	operation_list = read_terminal(operation_list);
 	argc = list_size(argc, argv);
+	operation_list = read_terminal(operation_list);
 	a = (int *) malloc((argc) * sizeof(int));
 	b = (int *) malloc((argc) * sizeof(int));
 	create_list(argc, a, argv);
-	execute_operations(operation_list, a, b, argc);
-	if (list_is_in_order(a, argc) == 1)
-		write(1, "\x1B[32mOK\n", 8);
-	else if (list_is_in_order(a, argc) == 0)
-		printf("\x1B[32mKO\n");
+	if (list_is_in_order(a, argc) == 0)
+		execute_operations(operation_list, a, b, argc);
+	grademe(a, operation_list, argc);
+	free(operation_list);
 	free(a);
 	free(b);
-	free(operation_list);
-	exit(0);
+	return (0);
 }
 
 //read the operations from standard input, make and return a list out of it
 char	*read_terminal(char *operation_list)
 {
-	char	*operation;
+	char			*operation;
 
 	while (1)
 	{
@@ -80,34 +78,34 @@ void	is_valid_operation(char *operation, char *operation_list)
 /*
 executing the operations one by one on the lists and changing the length
 of the arrays depending on if it's PA or PB
-pa - a index decrese b index incrase
-pb - b index decrese a index incrase
+pa - b index decrese a index incrase
+pb - a index decrese b index incrase
 */
-void	execute_operations(char *operation_list, int *a, int *b, int b_len)
+void	execute_operations(char *operation_list, int *a, int *b, int a_len)
 {
 	char		*op;
 	static int	i = 0;
-	const int	a_len = b_len;
+	const int	length = a_len;
 
 	while (*operation_list)
 	{
 		op = next_operation(operation_list);
 		if (ft_strcmp(op, "ra") || ft_strcmp(op, "rr"))
-			ra_or_rb(a + i, a_len - i);
+			ra_or_rb(a + i, length - i);
 		if (ft_strcmp(op, "rra") || ft_strcmp(op, "rrr"))
-			rra_or_rrb(a + i, a_len - i);
+			rra_or_rrb(a + i, length - i);
 		if (ft_strcmp(op, "sa") || ft_strcmp(op, "ss"))
 			sa_or_sb(a + i, 0);
 		if (ft_strcmp(op, "pa"))
-			a[--i] = b[b_len++];
+			a[--i] = b[a_len++];
 		if (ft_strcmp(op, "pb"))
-			b[--b_len] = a[i++];
+			b[--a_len] = a[i++];
 		if (ft_strcmp(op, "rb") || ft_strcmp(op, "rr"))
-			ra_or_rb(b + b_len, a_len - b_len);
+			ra_or_rb(b + a_len, length - a_len);
 		if (ft_strcmp(op, "sb") || ft_strcmp(op, "ss"))
-			sa_or_sb(b + b_len, 0);
+			sa_or_sb(b + a_len, 0);
 		if (ft_strcmp(op, "rrb") || ft_strcmp(op, "rrr"))
-			rra_or_rrb(b + b_len, a_len - b_len);
+			rra_or_rrb(b + a_len, length - a_len);
 		operation_list += ft_strlen(op) + 1;
 	}
 }
