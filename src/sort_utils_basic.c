@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/22 11:35:54 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:16:05 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	get_biggest_number(int *list, int length)
 
 	i = 0;
 	max = *list;
-	while (length--)
+	while (i < length)
 	{
 		if (max < list[i])
 			max = list[i];
@@ -89,6 +89,7 @@ int	get_biggest_number(int *list, int length)
 	return (max);
 }
 
+//if the 1st number == max then set next max to the second element
 int	get_next_biggest_number(int *list, int length)
 {
 	int	i;
@@ -98,9 +99,9 @@ int	get_next_biggest_number(int *list, int length)
 	i = 0;
 	max = get_biggest_number(list, length);
 	next_max = *list;
-	if (next_max == max)
+	if (length > 1 && next_max == max)
 		next_max = list[1];
-	while (length--)
+	while (i < length)
 	{
 		if (next_max < list[i] && list[i] != max)
 			next_max = list[i];

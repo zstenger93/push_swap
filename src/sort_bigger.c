@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/22 09:51:33 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/22 18:11:02 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,38 +82,35 @@ int	calculate_position(int *list, int mid, int a_length, int length)
 	return (0);
 }
 
-int	pick_divider(int length, int a_length, int smaller)
+//RRA the min numbers to top
+void	sort_to_a(int *list, int b_length)
 {
-	if (length > 250 && a_length > 250)
+	int	min_at_bottom;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	min_at_bottom = initialize_sort_to_a(list, b_length, i, j);
+	while (min_at_bottom > 0)
 	{
-		if (smaller == a_length / 7)
-			return (1);
+		write(1, "rra\n", 4);
+		min_at_bottom--;
 	}
-	else if (length > 149 || a_length < 11)
-	{
-		if (smaller == a_length / 5)
-			return (1);
-	}
-	else if (length < 150 && a_length > 10)
-	{
-		if (smaller == a_length / 3)
-			return (1);
-	}
-	return (0);
 }
 
 /*
 rotate B to get MAX on top -> PA -> reapeat with next biggest number
 if list[i] = MAX, NEXT MAX or MIN, apply the correct operation, PA, SA or RA
-J and FD for saving space when nothing left in B -> RRA the min numbers to top
 */
-void	sort_to_a(int *list, int b_length)
+int	initialize_sort_to_a(int *list, int b_length, int i, int j)
 {
-	static int		i = 0;
-	static int		j = 0;
 	static int		fd = 0;
 	t_calculation	c;
 
+	c.min = 0;
+	c.max = 0;
+	c.next = 0;
 	while (b_length > 0)
 	{
 		c.min = get_smallest_number(list + i, b_length);
@@ -132,6 +129,5 @@ void	sort_to_a(int *list, int b_length)
 			i += (--b_length * 0) + 1;
 		}
 	}
-	while (j--)
-		write(1, "rra\n", 4);
+	return (j);
 }
