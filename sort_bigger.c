@@ -123,9 +123,8 @@ remaining min numbers from the bottom of A to the top
 */
 void	sort_to_a(int *list, int b_length)
 {
-	static int		i = 0;
-	static int		j = 0;
-	static int		is = 0;
+
+
 	t_calculation	c;
 
 	while (b_length > 0)
