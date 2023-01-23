@@ -6,12 +6,14 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 12:06:35 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:05:27 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# define true 1
+# define false 0
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
@@ -54,11 +56,11 @@ int		get_next_biggest_number(int *stack, int len);
 //big sort
 void	sort_to_a(int *stack, int b_len);
 void	sort_bigger(int *a, int *b, int len);
-int		is_pivot_here(int *stack, int len, int mid);
 int		pivot_finder(int *stack, int b_len, int len);
-int		sort_b_to_a(int *stack, int b_len, int i, int j);
 int		pick_divider(int len, int a_len, int smaller);
-int		calculate_position(int *stack, int mid, int b_len, int len);
+int		is_pivot_here(int *stack, int len, int pivot);
+int		sort_b_to_a(int *stack, int b_len, int i, int j);
+int		calculate_position(int *stack, int pivot, int b_len, int len);
 
 //checker
 char	*read_stdin(char *operation_list);

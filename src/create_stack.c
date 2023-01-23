@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:45:06 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 11:45:09 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:07:22 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,18 @@ void	speed_is_life(int *a, int *b, int len)
 }
 
 //are there smaller numbers than the pivot?
-int	is_pivot_here(int *stack, int a_len, int mid)
+int	is_pivot_here(int *stack, int a_len, int pivot)
 {
 	int	i;
 
 	i = 0;
 	while (i < a_len)
 	{
-		if (stack[i] < mid)
-			return (1);
+		if (stack[i] < pivot)
+			return (true);
 		i++;
 	}
-	return (0);
+	return (false);
 }
 
 int	pick_divider(int len, int a_len, int smaller)
@@ -93,17 +93,17 @@ int	pick_divider(int len, int a_len, int smaller)
 	if (len > 250 && a_len > 250)
 	{
 		if (smaller == a_len / 7)
-			return (1);
+			return (true);
 	}
 	else if (len > 149 || a_len < 11)
 	{
 		if (smaller == a_len / 5)
-			return (1);
+			return (true);
 	}
 	else if (len < 150 && a_len > 10)
 	{
 		if (smaller == a_len / 3)
-			return (1);
+			return (true);
 	}
-	return (0);
+	return (false);
 }

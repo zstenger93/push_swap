@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 12:06:51 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:11:40 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 	a = (int *) malloc((stack_len) * sizeof(int));
 	b = (int *) malloc((stack_len) * sizeof(int));
 	create_stack(stack_len, a, argv);
-	if (stack_is_in_order(a, stack_len) == 0)
+	if (stack_is_in_order(a, stack_len) == false)
 		execute_operations(operation_list, a, b, stack_len);
 	grademe(a, operation_list, stack_len);
 	free(operation_list);

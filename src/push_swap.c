@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:04 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 11:34:21 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:08:58 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	a = (int *)malloc((stack_len) * sizeof(int));
 	create_stack(stack_len, a, argv);
 	b = (int *)malloc((stack_len) * sizeof(int));
-	if (stack_is_in_order(a, stack_len) == 0)
+	if (stack_is_in_order(a, stack_len) == false)
 		speed_is_life(a, b, stack_len);
 	free(a);
 	free(b);

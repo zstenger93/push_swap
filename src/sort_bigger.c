@@ -6,14 +6,14 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 11:52:56 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 14:09:18 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 /*
-get the pivot number what I will call MID. While I've it's position compare the
+get the pivot number. While I've it's position compare the
 stack elements to it, if they are smaller PB else RA and if no more, get the
 next pivot number. Then sort the remaining 5 in A and sort back the rest to A
 length of A decrese why B (i) incrase
@@ -21,17 +21,17 @@ length of A decrese why B (i) incrase
 void	sort_bigger(int *a, int *b, int len)
 {
 	int	i;
-	int	mid;
+	int	pivot;
 	int	a_len;
 
 	a_len = len;
 	i = 0;
 	while (a_len > 5)
 	{
-		mid = pivot_finder(a + i, a_len, len);
-		while (is_pivot_here(a + i, a_len, mid) && a_len > 5)
+		pivot = pivot_finder(a + i, a_len, len);
+		while (is_pivot_here(a + i, a_len, pivot) && a_len > 5)
 		{
-			if (a[i] < mid)
+			if (a[i] < pivot)
 			{
 				write(1, "pb\n", 3);
 				--a_len;
@@ -59,14 +59,14 @@ int	pivot_finder(int *stack, int a_len, int len)
 			return (stack[i]);
 		i++;
 	}
-	return (0);
+	return (false);
 }
 
 /*
-counts the elements in the stack that are smaller than the picked MID(PIVOT)
+counts the elements in the stack that are smaller than the picked pivot(PIVOT)
 if this count equal to 1/3 or 1/5 of the stack then it will be the pivot.
 */
-int	calculate_position(int *stack, int mid, int a_len, int len)
+int	calculate_position(int *stack, int pivot, int a_len, int len)
 {
 	int	smaller;
 	int	i;
@@ -75,13 +75,13 @@ int	calculate_position(int *stack, int mid, int a_len, int len)
 	smaller = 0;
 	while (i < a_len)
 	{
-		if (stack[i] < mid)
+		if (stack[i] < pivot)
 			smaller++;
 		i++;
 	}
-	if (pick_divider(len, a_len, smaller) == 1)
-		return (1);
-	return (0);
+	if (pick_divider(len, a_len, smaller) == true)
+		return (true);
+	return (false);
 }
 
 //RRA the min numbers to top
