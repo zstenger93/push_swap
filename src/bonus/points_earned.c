@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:12:56 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 11:30:29 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 16:21:20 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,47 +27,47 @@ void	points(int operation_count, int len)
 void	fivehundred(int operation_count)
 {
 	if (operation_count < 5500)
-		ft_printf("\033[1;35mYou are genius!"
-			"\n\033[1;35mPoints earned: \033[1;4;91m5\n");
+		ft_printf("\033[1;35m|      Congratulations!!     |\n"
+			"\033[1;35m|      Points earned: \033[1;4;91m5\033[0;39m      |");
 	else if (operation_count < 7000)
-		ft_printf("\033[1;35mNot bad, not bad!"
-			"\n\033[1;35mPoints earned: \033[1;4;91m4\n");
+		ft_printf("\033[1;35m|      Not bad, not bad!     |\n"
+			"\033[1;35m|      Points earned: \033[1;4;91m4\033[0;39m      |");
 	else if (operation_count < 8500)
-		ft_printf("\033[1;35mAlright!"
-			"\n\033[1;35mPoints earned: \033[1;4;91m3\n");
+		ft_printf("\033[1;35m|      It could be less!     |\n"
+			"\033[1;35m|      Points earned: \033[1;4;91m3\033[0;39m      |");
 	else if (operation_count < 10000)
-		ft_printf("\033[1;35mOoookay I guess!"
-			"\n\033[1;35mPoints earned: \033[1;4;91m2\n");
+		ft_printf("\033[1;35m|      Ooookay I gueess!     |\n"
+			"\033[1;35m|      Points earned: \033[1;4;91m2\033[0;39m      |");
 	else if (operation_count < 11500)
-		ft_printf("\033[1;35mI thought you can do better than this!"
-			"\n\033[1;35mPoints earned: \033[1;4;91m1\n");
+		ft_printf("\033[1;35m|      Grandma is faster     |\n"
+			"\033[1;35m|      Points earned: \033[1;4;91m1\033[0;39m      |");
 	else if (operation_count > 11500)
 		ft_printf("\033[1;35mAre you serious? I"
 			" can take a nap until this program does that amount of operations"
-			"\n\033[1;35mPoints earned: \033[1;4;91m0\nYou Failed!\nKO");
+			"\n\033[1;35m   Points earned: \033[1;4;91m0\nYou Failed!\nKO");
 }
 
 void	hundred(int operation_count)
 {
 	if (operation_count < 700)
-		ft_printf("\033[1;35mYou are Genius!"
-			"\n\033[1;35mPoints earned: \033[1;4;91m5\n");
+		ft_printf("\033[1;35m|      Congratulations!!     |\n"
+			"\033[1;35m|      Points earned: \033[1;4;91m5\033[0;39m      |");
 	else if (operation_count < 900)
-		ft_printf("\033[1;35mNot bad, not bad!"
-			"\n\033[1;35mPoints earned: \033[1;4;91m4\n");
+		ft_printf("\033[1;35m|      Not bad, not bad!     |\n"
+			"\033[1;35m|      Points earned: \033[1;4;91m4\033[0;39m      |");
 	else if (operation_count < 1100)
-		ft_printf("\033[1;35mAlright!"
-			"\n\033[1;35mPoints earned: \033[1;4;91m3\n");
+		ft_printf("\033[1;35m|      It could be less!     |\n"
+			"\033[1;35m|      Points earned: \033[1;4;91m3\033[0;39m      |");
 	else if (operation_count < 1300)
-		ft_printf("\033[1;35mOoookay I guess!"
-			"\n\033[1;35mPoints earned: \033[1;4;91m2\n");
+		ft_printf("\033[1;35m|      Ooookay I gueess!     |\n"
+			"\033[1;35m|      Points earned: \033[1;4;91m2\033[0;39m      |");
 	else if (operation_count < 1500)
-		ft_printf("\033[1;35mGit gud man!"
-			"\n\033[1;35mPoints earned: \033[1;4;91m1\n");
+		ft_printf("\033[1;35m|      Grandma is faster     |\n"
+			"\033[1;35m|      Points earned: \033[1;4;91m1\033[0;39m      |");
 	else if (operation_count > 1500)
 		ft_printf("\033[1;35mAre you serious? I"
 			" can take a nap until this program does that amount of operations"
-			"\n\033[1;35mPoints earned: \033[1;4;91m0\nYou Failed!\nKO");
+			"\n\033[1;35m   Points earned: \033[1;4;91m0\nYou Failed!\nKO");
 }
 
 void	five(int operation_count)
@@ -75,11 +75,11 @@ void	five(int operation_count)
 	if (operation_count <= 8)
 		ft_printf("\033[1;35mNice sorting!\n");
 	else if (operation_count <= 12)
-		ft_printf("\033[1;35mNot bad, not bad!\n");
+		ft_printf("\033[1;35m   Not bad, not bad!\n");
 	else if (operation_count > 12)
 		ft_printf("\033[1;35mAre you serious? I"
 			" can take a nap until this program does that amount of operations"
-			"\n\033[1;35mPoints earned: \033[1;4;91m0\nYou Failed!\nKO");
+			"\n\033[1;35m   Points earned: \033[1;4;91m0\nYou Failed!\nKO");
 }
 
 void	two_or_three(int operation_count, int len)
@@ -91,7 +91,7 @@ void	two_or_three(int operation_count, int len)
 		else if (operation_count > 1)
 			ft_printf("\033[1;35mAre you serious? I can take "
 				"a nap until this program does that amount of operations"
-				"\n\033[1;35mPoints earned: \033[1;4;91m0\nYou Failed!\nKO");
+				"\n\033[1;35m   Points earned: \033[1;4;91m0\nYou Failed!\nKO");
 	}
 	else if (len == 3)
 	{
@@ -100,6 +100,6 @@ void	two_or_three(int operation_count, int len)
 		else if (operation_count > 12)
 			ft_printf("\033[1;35mAre you serious? I can take "
 				"a nap until this program does that amount of operations"
-				"\n\033[1;35mPoints earned: \033[1;4;91m0\nYou Failed!\nKO");
+				"\n\033[1;35m   Points earned: \033[1;4;91m0\nYou Failed!\nKO");
 	}
 }
