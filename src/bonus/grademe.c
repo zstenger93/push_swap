@@ -14,12 +14,12 @@
 
 void	grademe(int *stack, char *operation_list, int len)
 {
-	if (stack_is_in_order(stack, len) == 1)
+	if (stack_is_in_order(stack, len) == true)
 	{
 		result(operation_list, len);
 		ft_printf("\n\x1B[1;32m|_____________OK_____________|\n");
 	}
-	else if (stack_is_in_order(stack, len) == 0)
+	else if (stack_is_in_order(stack, len) == false)
 		write(1, "          \x1B[1;31mKO\n", 18);
 }
 
