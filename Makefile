@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/22 15:55:18 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/23 10:21:08 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,7 +111,7 @@ re: fclean all
 
 OS = $(shell uname)
 
-size ?= 500
+size ?= 100
 
 ifeq ($(OS),Linux)
 CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)

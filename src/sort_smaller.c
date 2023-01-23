@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:27 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/21 14:30:49 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:12:53 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ void	sort_5(int *a, int length)
 {
 	int	min;
 	int	i;
-	int	temp_length;
+	int	b_length;
 
 	i = 0;
-	temp_length = length;
+	b_length = length;
 	while (length > 3)
 	{
 		min = get_smallest_number(a + i, length);
@@ -72,6 +72,9 @@ void	sort_5(int *a, int length)
 		}
 	}
 	sort_3(a + i);
-	while (temp_length-- > length)
+	while (b_length > length)
+	{
 		write(1, "pa\n", 3);
+		b_length--;
+	}
 }
