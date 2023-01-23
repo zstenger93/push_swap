@@ -39,7 +39,7 @@ void	fivehundred(int operation_count)
 		ft_printf("\033[1;35m|      Ooookay I gueess!     |\n"
 			"\033[1;35m|      Points earned: \033[1;4;91m2\033[0;39m      |");
 	else if (operation_count < 11500)
-		ft_printf("\033[1;35m|      Grandma is faster     |\n"
+		ft_printf("\033[1;35m|    My grandma is faster!   |\n"
 			"\033[1;35m|      Points earned: \033[1;4;91m1\033[0;39m      |");
 	else if (operation_count > 11500)
 		ft_printf("\033[1;35mAre you serious? I"
@@ -62,7 +62,7 @@ void	hundred(int operation_count)
 		ft_printf("\033[1;35m|      Ooookay I gueess!     |\n"
 			"\033[1;35m|      Points earned: \033[1;4;91m2\033[0;39m      |");
 	else if (operation_count < 1500)
-		ft_printf("\033[1;35m|      Grandma is faster     |\n"
+		ft_printf("\033[1;35m|    My grandma is faster!   |\n"
 			"\033[1;35m|      Points earned: \033[1;4;91m1\033[0;39m      |");
 	else if (operation_count > 1500)
 		ft_printf("\033[1;35mAre you serious? I"
@@ -73,9 +73,9 @@ void	hundred(int operation_count)
 void	five(int operation_count)
 {
 	if (operation_count <= 8)
-		ft_printf("\033[1;35mNice sorting!\n");
+		ft_printf("\033[1;35m|        Nice sorting!       |\n");
 	else if (operation_count <= 12)
-		ft_printf("\033[1;35m   Not bad, not bad!\n");
+		ft_printf("\033[1;35m|       Not bad, not bad!      |\n");
 	else if (operation_count > 12)
 		ft_printf("\033[1;35mAre you serious? I"
 			" can take a nap until this program does that amount of operations"
@@ -87,7 +87,7 @@ void	two_or_three(int operation_count, int len)
 	if (len == 2)
 	{
 		if (operation_count == 1)
-			ft_printf("\033[1;35mNice sorting!\n");
+			ft_printf("\033[1;35m|        Nice sorting!       |\n");
 		else if (operation_count > 1)
 			ft_printf("\033[1;35mAre you serious? I can take "
 				"a nap until this program does that amount of operations"
@@ -96,7 +96,7 @@ void	two_or_three(int operation_count, int len)
 	else if (len == 3)
 	{
 		if (operation_count <= 3)
-			ft_printf("\033[1;35mNice sorting!\n");
+			ft_printf("\033[1;35m|        Nice sorting!       |\n");
 		else if (operation_count > 12)
 			ft_printf("\033[1;35mAre you serious? I can take "
 				"a nap until this program does that amount of operations"

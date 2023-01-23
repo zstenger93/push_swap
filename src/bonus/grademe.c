@@ -17,10 +17,10 @@ void	grademe(int *stack, char *operation_list, int len)
 	if (stack_is_in_order(stack, len) == 1)
 	{
 		result(operation_list, len);
-		ft_printf("\n\x1B[32m|_____________OK_____________|\n");
+		ft_printf("\n\x1B[1;32m|_____________OK_____________|\n");
 	}
 	else if (stack_is_in_order(stack, len) == 0)
-		write(1, "          \x1B[31mKO\n", 18);
+		write(1, "          \x1B[1;31mKO\n", 18);
 }
 
 void	result(char *opl, int len)
@@ -57,13 +57,13 @@ void	output(int operation_count, int len)
 				"|            \x1B[1;36m%d            |\n", operation_count);
 			points(operation_count, len);
 		}
-		if (len == 100)
+		else if (len == 100)
 		{
 			ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
 				"|             \x1B[1;36m%d            |\n", operation_count);
 			points(operation_count, len);	
 		}
-		if (len == 5 || len == 3 || len == 2)
+		else if (len == 5 || len == 3 || len == 2)
 			output2(operation_count, len);
 	}
 }
@@ -71,16 +71,23 @@ void	output(int operation_count, int len)
 void	output2(int operation_count, int len)
 {
 
-	if (len == 5)
+	if (len == 5 && operation_count > 9)
 	{
 		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
-			"|            \x1B[1;36m%d            |\n", operation_count);
+			"|             \x1B[1;36m%d             |\n", operation_count);
 		points(operation_count, len);
 	}
-	if (len == 3 || len == 2)
+	else if (len == 5 && operation_count < 10)
 	{
 		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
-			"|            \x1B[1;36m%d            |\n", operation_count);
+			"|             \x1B[1;36m%d              |\n", operation_count);
+		points(operation_count, len);
+		
+	}
+	else if (len == 3 || len == 2)
+	{
+		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
+			"|             \x1B[1;36m%d              |\n", operation_count);
 		points(operation_count, len);
 	}
 }
