@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   points.c                                           :+:      :+:    :+:   */
+/*   points_earned.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:12:56 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/22 14:20:48 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 11:30:29 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	points(int operation_count, int length)
+void	points(int operation_count, int len)
 {
-	if (length == 2 || length == 3)
-		two_or_three(operation_count, length);
-	else if (length == 5)
+	if (len == 2 || len == 3)
+		two_or_three(operation_count, len);
+	else if (len == 5)
 		five(operation_count);
-	else if (length == 100)
+	else if (len == 100)
 		hundred(operation_count);
-	else if (length == 500)
+	else if (len == 500)
 		fivehundred(operation_count);
 }
 
@@ -82,9 +82,9 @@ void	five(int operation_count)
 			"\n\033[1;35mPoints earned: \033[1;4;91m0\nYou Failed!\nKO");
 }
 
-void	two_or_three(int operation_count, int length)
+void	two_or_three(int operation_count, int len)
 {
-	if (length == 2)
+	if (len == 2)
 	{
 		if (operation_count == 1)
 			ft_printf("\033[1;35mNice sorting!\n");
@@ -93,7 +93,7 @@ void	two_or_three(int operation_count, int length)
 				"a nap until this program does that amount of operations"
 				"\n\033[1;35mPoints earned: \033[1;4;91m0\nYou Failed!\nKO");
 	}
-	else if (length == 3)
+	else if (len == 3)
 	{
 		if (operation_count <= 3)
 			ft_printf("\033[1;35mNice sorting!\n");

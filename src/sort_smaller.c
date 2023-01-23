@@ -6,22 +6,22 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:27 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 10:12:53 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 11:28:46 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_smaller(int *a, int length)
+void	sort_smaller(int *a, int len)
 {
-	if (length == 2)
+	if (len == 2)
 		write(1, "sa\n", 3);
-	else if (length > 2 && length < 6)
+	else if (len > 2 && len < 6)
 	{
-		if (length == 3)
+		if (len == 3)
 			sort_3(a);
 		else
-			sort_5(a, length);
+			sort_5(a, len);
 	}
 }
 
@@ -52,29 +52,29 @@ void	sort_3(int *a)
 		write(1, "rra\n", 4);
 }
 
-void	sort_5(int *a, int length)
+void	sort_5(int *a, int len)
 {
 	int	min;
 	int	i;
-	int	b_length;
+	int	b_len;
 
 	i = 0;
-	b_length = length;
-	while (length > 3)
+	b_len = len;
+	while (len > 3)
 	{
-		min = get_smallest_number(a + i, length);
-		ra_or_rra(a + i, length, min);
-		if (a[i] == get_smallest_number(a + i, length))
+		min = get_smallest_number(a + i, len);
+		ra_or_rra(a + i, len, min);
+		if (a[i] == get_smallest_number(a + i, len))
 		{
 			write(1, "pb\n", 3);
-			length--;
+			len--;
 			i++;
 		}
 	}
 	sort_3(a + i);
-	while (b_length > length)
+	while (b_len > len)
 	{
 		write(1, "pa\n", 3);
-		b_length--;
+		b_len--;
 	}
 }

@@ -6,19 +6,19 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 10:04:02 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 11:33:07 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	list_size(int argc, char **argv)
+int	stack_size(int argc, char **argv)
 {
-	int			length;
+	int			len;
 	int			i;
 	static int	j = 0;
 
-	length = 0;
+	len = 0;
 	while (++j < argc)
 	{
 		i = 0;
@@ -27,7 +27,7 @@ int	list_size(int argc, char **argv)
 			if (argv[j][i] == '+' || argv[j][i] == '-')
 				i++;
 			if (ft_isdigit(argv[j][i]))
-				length++;
+				len++;
 			else if (argv[j][i] != ' ' && argv[j][i] != '\t')
 				return (ft_printf("\e[1;4;31mError!\e[0m\n"), 1);
 			while (ft_isdigit(argv[j][i]))
@@ -38,73 +38,73 @@ int	list_size(int argc, char **argv)
 				i++;
 		}
 	}
-	return (length);
+	return (len);
 }
 
-int	list_is_in_order(int *list, int length)
+int	stack_is_in_order(int *stack, int len)
 {
 	int	i;
 
 	i = 0;
-	while (i < length)
+	while (i < len)
 	{
-		if (!list[i])
+		if (!stack[i])
 			return (0);
-		else if (i != 0 && list[i - 1] > list[i])
+		else if (i != 0 && stack[i - 1] > stack[i])
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	get_smallest_number(int *list, int length)
+int	get_smallest_number(int *stack, int len)
 {
 	int	i;
 	int	min;
 
 	i = 0;
-	min = *list;
-	while (i < length)
+	min = *stack;
+	while (i < len)
 	{
-		if (min > list[i])
-			min = list[i];
+		if (min > stack[i])
+			min = stack[i];
 		i++;
 	}
 	return (min);
 }
 
-int	get_biggest_number(int *list, int length)
+int	get_biggest_number(int *stack, int len)
 {
 	int	i;
 	int	max;
 
 	i = 0;
-	max = *list;
-	while (i < length)
+	max = *stack;
+	while (i < len)
 	{
-		if (max < list[i])
-			max = list[i];
+		if (max < stack[i])
+			max = stack[i];
 		i++;
 	}
 	return (max);
 }
 
 //if the 1st number == max then set next max to the second element
-int	get_next_biggest_number(int *list, int length)
+int	get_next_biggest_number(int *stack, int len)
 {
 	int	i;
 	int	next_max;
 	int	max;
 
 	i = 0;
-	max = get_biggest_number(list, length);
-	next_max = *list;
-	if (length > 1 && next_max == max)
-		next_max = list[1];
-	while (i < length)
+	max = get_biggest_number(stack, len);
+	next_max = *stack;
+	if (len > 1 && next_max == max)
+		next_max = stack[1];
+	while (i < len)
 	{
-		if (next_max < list[i] && list[i] != max)
-			next_max = list[i];
+		if (next_max < stack[i] && stack[i] != max)
+			next_max = stack[i];
 		i++;
 	}
 	return (next_max);

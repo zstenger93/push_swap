@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/22 15:16:02 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 11:36:16 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int	main(int argc, char **argv)
 		return (0);
 	operation_list = (char *)malloc(1);
 	*operation_list = 0;
-	argc = list_size(argc, argv);
+	argc = stack_size(argc, argv);
 	operation_list = read_terminal(operation_list);
 	a = (int *) malloc((argc) * sizeof(int));
 	b = (int *) malloc((argc) * sizeof(int));
-	create_list(argc, a, argv);
-	if (list_is_in_order(a, argc) == 0)
+	create_stack(argc, a, argv);
+	if (stack_is_in_order(a, argc) == 0)
 		execute_operations(operation_list, a, b, argc);
 	grademe(a, operation_list, argc);
 	free(operation_list);
@@ -76,7 +76,7 @@ void	is_valid_operation(char *operation, char *operation_list)
 }
 
 /*
-executing the operations one by one on the lists and changing the length
+executing the operations one by one on the lists and changing the len
 of the arrays depending on if it's PA or PB
 pa - b index decrese a index incrase
 pb - a index decrese b index incrase
@@ -85,15 +85,15 @@ void	execute_operations(char *operation_list, int *a, int *b, int a_len)
 {
 	char		*op;
 	static int	i = 0;
-	const int	length = a_len;
+	const int	len = a_len;
 
 	while (*operation_list)
 	{
 		op = next_operation(operation_list);
 		if (ft_strcmp(op, "ra") || ft_strcmp(op, "rr"))
-			ra_or_rb(a + i, length - i);
+			ra_or_rb(a + i, len - i);
 		if (ft_strcmp(op, "rra") || ft_strcmp(op, "rrr"))
-			rra_or_rrb(a + i, length - i);
+			rra_or_rrb(a + i, len - i);
 		if (ft_strcmp(op, "sa") || ft_strcmp(op, "ss"))
 			sa_or_sb(a + i, 0);
 		if (ft_strcmp(op, "pa"))
@@ -101,11 +101,11 @@ void	execute_operations(char *operation_list, int *a, int *b, int a_len)
 		if (ft_strcmp(op, "pb"))
 			b[--a_len] = a[i++];
 		if (ft_strcmp(op, "rb") || ft_strcmp(op, "rr"))
-			ra_or_rb(b + a_len, length - a_len);
+			ra_or_rb(b + a_len, len - a_len);
 		if (ft_strcmp(op, "sb") || ft_strcmp(op, "ss"))
 			sa_or_sb(b + a_len, 0);
 		if (ft_strcmp(op, "rrb") || ft_strcmp(op, "rrr"))
-			rra_or_rrb(b + a_len, length - a_len);
+			rra_or_rrb(b + a_len, len - a_len);
 		operation_list += ft_strlen(op) + 1;
 	}
 }

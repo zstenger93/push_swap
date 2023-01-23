@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/23 11:03:19 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/23 11:55:28 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,19 +19,19 @@ LIBFT = libft/libft.a
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = src/push_swap.c \
-		src/sort_utils.c \
+		src/stack_utils.c \
 		src/sort_bigger.c \
-		src/create_list.c \
 		src/sort_smaller.c \
-		src/sort_utils_basic.c \
+		src/create_stack.c \
+		src/stack_operations.c \
 
-BONUS_SRCS = src/sort_utils.c \
+BONUS_SRCS = src/stack_utils.c \
 			src/sort_bigger.c \
-			src/create_list.c \
+			src/create_stack.c \
 			src/sort_smaller.c \
 			src/bonus/grademe.c \
 			src/bonus/checker.c \
-			src/sort_utils_basic.c \
+			src/stack_operations.c \
 			src/bonus/points_earned.c \
 
 OBJS = $(SRCS:.c=.o)
@@ -111,7 +111,7 @@ re: fclean all
 
 OS = $(shell uname)
 
-size ?= 100
+size ?= 55
 
 ifeq ($(OS),Linux)
 CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
@@ -124,21 +124,21 @@ endif
 # dont't put numbers too far from each other for the sequence
 # i told you not to... \_O_/
 rt:
-	@$(eval ARG = $(shell seq 1 10000 | shuf -n $(size)))
+	@$(eval ARG = $(shell seq 1 1000 | shuf -n $(size)))
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
 	@./push_swap $(ARG) | wc -l
 	@echo "\x1B[1;4;91m42 checker result: \033[0;39m\x1B[1;33m"
 	$(CHECKER)
 
 mrt:
-	@$(eval ARG = $(shell seq 1 10000 | shuf -n $(size)))
+	@$(eval ARG = $(shell seq 1 1000 | shuf -n $(size)))
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
 	@./push_swap $(ARG) | wc -l
 	@echo "\x1B[1;4;91mMy checker result: \033[0;39m\x1B[1;33m"
 	$(MCHECKER)
 
 rtmrt:
-	@$(eval ARG = $(shell seq 1 10000 | shuf -n $(size)))
+	@$(eval ARG = $(shell seq 1 1000 | shuf -n $(size)))
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
 	@./push_swap $(ARG) | wc -l
 	@echo "\x1B[1;4;91mMy checker result: \033[0;39m\x1B[1;33m"
