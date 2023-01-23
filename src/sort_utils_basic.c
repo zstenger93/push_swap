@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/22 18:16:05 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:04:02 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	get_smallest_number(int *list, int length)
 
 	i = 0;
 	min = *list;
-	while (length--)
+	while (i < length)
 	{
 		if (min > list[i])
 			min = list[i];

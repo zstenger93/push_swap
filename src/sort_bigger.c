@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/22 18:11:02 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:02:46 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ void	sort_bigger(int *a, int *b, int length)
 			if (a[i] < mid)
 			{
 				write(1, "pb\n", 3);
-				b[--a_length] = a[i++];
+				--a_length;
+				b[a_length] = a[i];
+				i++;
 				continue ;
 			}
 			ra_or_rb(a + i, a_length);
@@ -85,17 +87,17 @@ int	calculate_position(int *list, int mid, int a_length, int length)
 //RRA the min numbers to top
 void	sort_to_a(int *list, int b_length)
 {
-	int	min_at_bottom;
+	int	rra_min_from_bottom;
 	int	i;
-	int	j;
+	int	small_numbers;
 
 	i = 0;
-	j = 0;
-	min_at_bottom = initialize_sort_to_a(list, b_length, i, j);
-	while (min_at_bottom > 0)
+	small_numbers = 0;
+	rra_min_from_bottom = sort_b_to_a(list, b_length, i, small_numbers);
+	while (rra_min_from_bottom > 0)
 	{
 		write(1, "rra\n", 4);
-		min_at_bottom--;
+		rra_min_from_bottom--;
 	}
 }
 
@@ -103,14 +105,11 @@ void	sort_to_a(int *list, int b_length)
 rotate B to get MAX on top -> PA -> reapeat with next biggest number
 if list[i] = MAX, NEXT MAX or MIN, apply the correct operation, PA, SA or RA
 */
-int	initialize_sort_to_a(int *list, int b_length, int i, int j)
+int	sort_b_to_a(int *list, int b_length, int i, int j)
 {
 	static int		fd = 0;
 	t_calculation	c;
 
-	c.min = 0;
-	c.max = 0;
-	c.next = 0;
 	while (b_length > 0)
 	{
 		c.min = get_smallest_number(list + i, b_length);
@@ -124,9 +123,10 @@ int	initialize_sort_to_a(int *list, int b_length, int i, int j)
 				fd = 1;
 			else if (fd && list[i] == c.max)
 				write(fd--, "sa\n", 3);
-			else if (list[i] == c.min)
-				write(++j * 0 + 1, "ra\n", 3);
-			i += (--b_length * 0) + 1;
+			else if (list[i] == c.min && ++j)
+				write(1, "ra\n", 3);
+			--b_length;
+			i++;
 		}
 	}
 	return (j);
