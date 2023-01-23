@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   result.c                                           :+:      :+:    :+:   */
+/*   grademe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:57:26 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/22 14:31:33 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 11:23:41 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	result(char *opl, int length)
 	}
 	if (length > 0)
 	{
-		ft_printf("\x1B[1;4;91mYour operation count:\n"
+		ft_printf("\x1B[1;4;91mYour operation count is:\n"
 			"\033[0;39m\x1B[1;36m%d\n", i);
 		points(i, length);
 	}

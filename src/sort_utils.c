@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:58 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 10:16:16 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 11:21:15 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,8 @@ void	ra_or_rb(int *list, int length)
 
 	i = 0;
 	temp = list[i];
-	while (i < length)
-	{
-		++i;
+	while (++i < length)
 		list[i - 1] = list[i];
-	}
 	list[i - 1] = temp;
 }
 
