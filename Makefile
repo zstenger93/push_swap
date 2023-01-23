@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/23 10:21:08 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/23 11:03:19 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,10 @@ BONUS_SRCS = src/sort_utils.c \
 			src/sort_bigger.c \
 			src/create_list.c \
 			src/sort_smaller.c \
-			src/bonus/result.c \
-			src/bonus/points.c \
+			src/bonus/grademe.c \
 			src/bonus/checker.c \
 			src/sort_utils_basic.c \
+			src/bonus/points_earned.c \
 
 OBJS = $(SRCS:.c=.o)
 
