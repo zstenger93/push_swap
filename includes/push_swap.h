@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 11:52:35 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/23 12:06:35 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		pick_divider(int len, int a_len, int smaller);
 int		calculate_position(int *stack, int mid, int b_len, int len);
 
 //checker
-char	*read_terminal(char *operation_list);
+char	*read_stdin(char *operation_list);
 char	*next_operation(char *operation_list);
 void	result(char *operation_list, int len);
 void	is_valid_operation(char *operation, char *operation_list);
