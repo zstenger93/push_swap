@@ -1,7 +1,7 @@
 <h1 align="center">
 	📖 PUSH_SWAP
 </h1>
-<img src="">
+<img src="https://github.com/zstenger93/push_swap/blob/master/visualizer.png">
 <p align="center">
 	<b><i>Let's swap some push!</i></b><br>
 </p>
