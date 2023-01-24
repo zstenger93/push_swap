@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/24 17:03:02 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/24 17:42:09 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,7 +112,7 @@ re: fclean all
 
 OS = $(shell uname)
 
-size ?=50
+size ?=500
 
 ifeq ($(OS),Linux)
 CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
@@ -139,7 +139,7 @@ mrt:
 	@$(MCHECKER)
 
 omrt:
-	@$(eval ARG = $(shell seq 0 50 | shuf -n $(size)))
+	@$(eval ARG = $(shell seq 1 500 | shuf -n $(size)))
 	@$(MCHECKER)
 
 rtmrt:
