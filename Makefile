@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/23 16:21:57 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/24 12:28:07 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -111,7 +111,7 @@ re: fclean all
 
 OS = $(shell uname)
 
-size ?= 100
+size ?= 500
 
 ifeq ($(OS),Linux)
 CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
@@ -150,7 +150,17 @@ rtmrt:
 # copypaste and run:
 # brew install coreutils
 
-.PHONY: all bonus clean fclean re rt mrt rtmrt
+l:
+	@$(eval ARG = $(shell seq 1 1000 | shuf -n $(size)))
+	@valgrind --leak-check=full --show-leak-kinds=all \
+	--track-origins=yes --error-limit=no --tool=memcheck ./push_swap $(ARG)
+
+bl: 
+	@$(eval ARG = $(shell seq 1 1000 | shuf -n $(size)))
+	@./push_swap $(ARG) | valgrind --leak-check=full --show-leak-kinds=all \
+	--track-origins=yes --error-limit=no --tool=memcheck ./checker $(ARG)
+
+.PHONY: all bonus clean fclean re rt mrt rtmrt leak bleak
 
 t:
 	$(L)

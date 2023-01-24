@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:57:26 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 16:34:30 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/24 12:26:52 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,20 @@
 
 void	grademe(int *stack, char *operation_list, int len)
 {
-	if (stack_is_in_order(stack, len) == true)
+	if (len == 500 || len == 100 || len == 5 || len == 3 || len == 2)
 	{
-		result(operation_list, len);
-		ft_printf("\n\x1B[1;32m|_____________OK_____________|\n");
+		if (stack_is_in_order(stack, len) == true)
+			result(operation_list, len);
+		else if (stack_is_in_order(stack, len) == false)
+			write(1, "          \x1B[1;31mKO\n", 18);
 	}
-	else if (stack_is_in_order(stack, len) == false)
-		write(1, "          \x1B[1;31mKO\n", 18);
+	else
+	{
+		if (stack_is_in_order(stack, len) == true)
+			ft_printf("\x1B[1;32mOK\n");
+		else if (stack_is_in_order(stack, len) == false)
+			write(1, "          \x1B[1;31mKO\n", 18);
+	}
 }
 
 void	result(char *opl, int len)
@@ -57,20 +64,19 @@ void	output(int operation_count, int len)
 				"|            \x1B[1;36m%d            |\n", operation_count);
 			points(operation_count, len);
 		}
-		else if (len == 100)
+		if (len == 100)
 		{
 			ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
 				"|             \x1B[1;36m%d            |\n", operation_count);
-			points(operation_count, len);	
+			points(operation_count, len);
 		}
-		else if (len == 5 || len == 3 || len == 2)
+		if (len == 5 || len == 3 || len == 2 || len == 500 || len == 100)
 			output2(operation_count, len);
 	}
 }
 
 void	output2(int operation_count, int len)
 {
-
 	if (len == 5 && operation_count > 9)
 	{
 		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
@@ -82,7 +88,6 @@ void	output2(int operation_count, int len)
 		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
 			"|             \x1B[1;36m%d              |\n", operation_count);
 		points(operation_count, len);
-		
 	}
 	else if (len == 3 || len == 2)
 	{
@@ -90,4 +95,17 @@ void	output2(int operation_count, int len)
 			"|             \x1B[1;36m%d              |\n", operation_count);
 		points(operation_count, len);
 	}
+	output3(operation_count, len);
+}
+
+void	output3(int operation_count, int len)
+{
+	if ((len == 500 && operation_count <= 11500)
+		|| (len == 100 && operation_count <= 1500)
+		|| (len == 5 && operation_count <= 12)
+		|| (len == 3 && operation_count <= 3)
+		|| (len == 2 && operation_count <= 0))
+		ft_printf("\n\x1B[1;32m|_____________OK_____________|\n");
+	else
+		ft_printf("\n\x1B[1;31m|_____________KO_____________|\n");
 }

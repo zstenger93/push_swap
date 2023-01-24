@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 16:32:05 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/24 10:05:00 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	is_valid_operation(char *operation, char *operation_list);
 void	execute_operations(char *operation_list, int *a, int *b, int b_len);
 void	grademe(int *stack, char *operation_list, int len);
 void	two_or_three(int operation_count, int len);
+void	output3(int operation_count, int len);
 void	output2(int operation_count, int len);
 void	output(int operation_count, int len);
 void	points(int operation_count, int len);
