@@ -135,6 +135,9 @@ Errors include for example: some arguments aren’t integers, some arguments are
 bigger than an integer and/or there are duplicates.</i>
 
 ### Bonus:
+
+https://github.com/zstenger93/push_swap/blob/master/checker.png
+
 > - <i>Create a checker program for push_swap
 > - Add some sprite animation.
 > - Display the movement count directly on screen instead of writing it in the shell.
