@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:57:26 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/24 14:36:04 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:39:14 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ void	output3(int operation_count, int len)
 		|| (len == 3 && operation_count <= 3)
 		|| (len == 2 && operation_count <= 1))
 		ft_printf("\n\t\t\x1B[1;4;31m|             \x1B[1;4;32mOK\x1B"
-			"[1;4;31m             |\n");
+			"[1;4;31m             |\n\n");
 	else
 		ft_printf("\n\t\t\x1B[1;4;31m|             KO\x1B"
-			"[1;4;31m             |\n");
+			"[1;4;31m             |\n\n");
 }
