@@ -180,6 +180,10 @@ $ make rt
 ```shell
 $ make mrt
 ```
+> - You can run `make omrt` to run a random test with my checker displaying only the input of my checker, nothing else as the screenshot from above:
+```shell
+$ make omrt
+```
 > - Or you can run both together with `make rtmrt`:
 ```shell
 $ make rtmrt
