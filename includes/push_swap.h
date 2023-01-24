@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/24 10:05:00 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/24 13:38:59 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void	points(int operation_count, int len);
 void	fivehundred(int operation_count);
 void	hundred(int operation_count);
 void	five(int operation_count);
+void	sign(void);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/24 12:28:07 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/24 16:11:35 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS = src/push_swap.c \
 		src/create_stack.c \
 		src/stack_operations.c \
 
-BONUS_SRCS = src/stack_utils.c \
+BONUS_SRCS = src/bonus/sign.c \
+			src/stack_utils.c \
 			src/sort_bigger.c \
 			src/create_stack.c \
 			src/sort_smaller.c \
@@ -111,7 +112,7 @@ re: fclean all
 
 OS = $(shell uname)
 
-size ?= 500
+size ?=50
 
 ifeq ($(OS),Linux)
 CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
@@ -128,13 +129,18 @@ rt:
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
 	@./push_swap $(ARG) | wc -l
 	@echo "\x1B[1;4;91m42 checker result: \033[0;39m\x1B[1;33m"
-	$(CHECKER)
+	@$(CHECKER)
 
 mrt:
 	@$(eval ARG = $(shell seq 1 1000 | shuf -n $(size)))
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
 	@./push_swap $(ARG) | wc -l
 	@echo "\x1B[1;4;91mMy checker result: \033[0;39m\x1B[1;33m"
+	@$(MCHECKER)
+
+omrt:
+	@echo "\x1B[1;33m"
+	@$(eval ARG = $(shell seq 1 1000 | shuf -n $(size)))
 	$(MCHECKER)
 
 rtmrt:
@@ -142,9 +148,9 @@ rtmrt:
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
 	@./push_swap $(ARG) | wc -l
 	@echo "\x1B[1;4;91mMy checker result: \033[0;39m\x1B[1;33m"
-	$(MCHECKER)
+	@$(MCHECKER)
 	@echo "\x1B[1;4;91m42 checker result: \033[0;39m\x1B[1;33m"
-	$(CHECKER)
+	@$(CHECKER)
 
 # if it says no shuf command found:
 # copypaste and run:

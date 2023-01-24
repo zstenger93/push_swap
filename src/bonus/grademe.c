@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:57:26 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/24 12:26:52 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/24 14:36:04 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,21 @@ void	output(int operation_count, int len)
 {
 	if (len > 0)
 	{
+		sign();
 		if (len == 500 || len == 100 || len == 5 || len == 3 || len == 2)
-			write(1, "______________________________\n", 31);
+			ft_printf("\t\t\033[1;4;91m                              \n\t\t");
 		if (len == 500)
 		{
 			ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
-				"|            \x1B[1;36m%d            |\n", operation_count);
+				"\t\t"
+				"\x1B[1;36m|            %d            |\n", operation_count);
 			points(operation_count, len);
 		}
 		if (len == 100)
 		{
 			ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
-				"|             \x1B[1;36m%d            |\n", operation_count);
+				"\t\t"
+				"\x1B[1;36m|             %d            |\n", operation_count);
 			points(operation_count, len);
 		}
 		if (len == 5 || len == 3 || len == 2 || len == 500 || len == 100)
@@ -79,20 +82,20 @@ void	output2(int operation_count, int len)
 {
 	if (len == 5 && operation_count > 9)
 	{
-		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
-			"|             \x1B[1;36m%d             |\n", operation_count);
+		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n\t\t"
+			"\x1B[1;36m|             %d             |\n", operation_count);
 		points(operation_count, len);
 	}
 	else if (len == 5 && operation_count < 10)
 	{
-		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
-			"|             \x1B[1;36m%d              |\n", operation_count);
+		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n\t\t"
+			"\x1B[1;36m|             %d              |\n", operation_count);
 		points(operation_count, len);
 	}
 	else if (len == 3 || len == 2)
 	{
-		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n"
-			"|             \x1B[1;36m%d              |\n", operation_count);
+		ft_printf("\x1B[1;4;91m|  Your operation count is:  |\033[0;39m\n\t\t"
+			"\x1B[1;36m|             %d              |\n", operation_count);
 		points(operation_count, len);
 	}
 	output3(operation_count, len);
@@ -104,8 +107,10 @@ void	output3(int operation_count, int len)
 		|| (len == 100 && operation_count <= 1500)
 		|| (len == 5 && operation_count <= 12)
 		|| (len == 3 && operation_count <= 3)
-		|| (len == 2 && operation_count <= 0))
-		ft_printf("\n\x1B[1;32m|_____________OK_____________|\n");
+		|| (len == 2 && operation_count <= 1))
+		ft_printf("\n\t\t\x1B[1;4;31m|             \x1B[1;4;32mOK\x1B"
+			"[1;4;31m             |\n");
 	else
-		ft_printf("\n\x1B[1;31m|_____________KO_____________|\n");
+		ft_printf("\n\t\t\x1B[1;4;31m|             KO\x1B"
+			"[1;4;31m             |\n");
 }
