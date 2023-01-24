@@ -136,7 +136,7 @@ bigger than an integer and/or there are duplicates.</i>
 
 ### Bonus:
 
-https://github.com/zstenger93/push_swap/blob/master/checker.png
+<img src="https://github.com/zstenger93/push_swap/blob/master/checker.png">
 
 > - <i>Create a checker program for push_swap
 > - Add some sprite animation.
