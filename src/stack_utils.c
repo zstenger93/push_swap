@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 14:10:15 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/24 17:00:16 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ int	stack_is_in_order(int *stack, int len)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (i < len)
 	{
 		if (!stack[i])
 			return (0);
-		else if (i != 0 && stack[i - 1] > stack[i])
+		else if (stack[i - 1] > stack[i])
 			return (false);
 		i++;
 	}
