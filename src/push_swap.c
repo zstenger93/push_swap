@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:04 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/29 11:00:26 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/29 11:03:18 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ int	main(int argc, char **argv)
 
 void	is_argv_valid(int argc, char **argv)
 {
-	int	j;
+	int		j;
 	size_t	i;
 	size_t	space;
 
 	j = 0;
 	while (++j < argc)
 	{
-		if(ft_strlen(argv[j]) == 0)
+		if (ft_strlen(argv[j]) == 0)
 			verror();
 		i = 0;
 		space = 0;
