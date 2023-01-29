@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 14:09:18 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/29 11:31:56 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int	sort_b_to_a(int *stack, int b_len, int i, int j)
 			write(1, "pa\n", 3);
 			if (stack[i] == c.next && fd == 0)
 				fd = 1;
-			else if (fd && stack[i] == c.max)
+			else if (fd == 1 && stack[i] == c.max)
 				write(fd--, "sa\n", 3);
 			else if (stack[i] == c.min && ++j)
 				write(1, "ra\n", 3);

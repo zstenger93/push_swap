@@ -6,7 +6,7 @@
 #    By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/07 17:37:11 by zstenger          #+#    #+#              #
-#    Updated: 2023/01/24 17:42:09 by zstenger         ###   ########.fr        #
+#    Updated: 2023/01/29 11:36:17 by zstenger         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -138,10 +138,6 @@ mrt:
 	@echo "\x1B[1;4;91mMy checker result: \033[0;39m\x1B[1;33m"
 	@$(MCHECKER)
 
-omrt:
-	@$(eval ARG = $(shell seq 1 500 | shuf -n $(size)))
-	@$(MCHECKER)
-
 rtmrt:
 	@$(eval ARG = $(shell seq 1 1000 | shuf -n $(size)))
 	@echo "\x1B[1;4;91mMy operation count: \033[0;39m\x1B[1;36m"
@@ -150,6 +146,14 @@ rtmrt:
 	@$(MCHECKER)
 	@echo "\x1B[1;4;91m42 checker result: \033[0;39m\x1B[1;33m"
 	@$(CHECKER)
+
+om:
+	@$(eval ARG = $(shell seq 1 500 | shuf -n $(size)))
+	$(MCHECKER)
+
+omq:
+	@$(eval ARG = $(shell seq 1 500 | shuf -n $(size)))
+	@$(MCHECKER)
 
 # if it says no shuf command found:
 # copypaste and run:
@@ -165,7 +169,7 @@ bl:
 	@./push_swap $(ARG) | valgrind --leak-check=full --show-leak-kinds=all \
 	--track-origins=yes --error-limit=no --tool=memcheck ./checker $(ARG)
 
-.PHONY: all bonus clean fclean re rt mrt rtmrt leak bleak
+.PHONY: all bonus clean fclean re rt mrt rtmrt leak bleak om omq t
 
 t:
 	$(L)
