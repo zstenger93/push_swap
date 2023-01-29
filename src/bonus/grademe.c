@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:57:26 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/29 12:57:52 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/29 13:37:28 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	result(char *opl, int len)
 
 	operation_count = 0;
 	k = 0;
-	while (opl[k] != '\0')
+	while (opl[k] != '\0' && opl[0] != '\n')
 	{
 		while (opl[k] == ' ' || opl[k] == '\t' || opl[k] == '\n')
 			k++;
