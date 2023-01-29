@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/24 13:38:59 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/29 11:00:02 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_calculation
 
 //check the input and create a stack
 int		stack_size(int argc, char **argv);
+void	is_argv_valid(int argc, char **argv);
 int		stack_is_in_order(int *stack, int len);
 void	check_for_doubles(int *stack, int len);
 void	create_stack(int len, int *stack_a, char **argv);
