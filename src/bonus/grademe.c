@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:57:26 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/29 11:38:56 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/29 12:57:52 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void	grademe(int *stack, char *operation_list, int len)
 		if (stack_is_in_order(stack, len) == true)
 			result(operation_list, len);
 		else if (stack_is_in_order(stack, len) == false)
-			write(1, "          \x1B[1;31mKO\n", 18);
+			ft_printf("          \x1B[1;31mKO\n");
 	}
 	else
 	{
 		if (stack_is_in_order(stack, len) == true)
-			ft_printf("\x1B[1;32mOK\n");
+			ft_printf("          \x1B[1;32mOK\n");
 		else if (stack_is_in_order(stack, len) == false)
-			write(1, "          \x1B[1;31mKO\n", 18);
+			ft_printf("          \x1B[1;31mKO\n");
 	}
 }
 
