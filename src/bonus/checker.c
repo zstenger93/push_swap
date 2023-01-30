@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/29 12:50:56 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/30 08:29:06 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*read_stdin(char *operation_list)
 	while (1)
 	{
 		operation = get_next_line(0);
-		if (operation == NULL || ft_strlen(operation) == 1)
+		if (operation == NULL)
 			break ;
 		is_valid_operation(operation, operation_list);
 		operation_list = ft_strjoin(operation_list, operation);
