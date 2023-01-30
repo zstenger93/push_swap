@@ -6,18 +6,12 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:12 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/29 11:31:56 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:47:08 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/*
-get the pivot number. While I've it's position compare the
-stack elements to it, if they are smaller PB else RA and if no more, get the
-next pivot number. Then sort the remaining 5 in A and sort back the rest to A
-length of A decrese why B (i) incrase
-*/
 void	sort_bigger(int *a, int *b, int len)
 {
 	int	i;
@@ -47,7 +41,6 @@ void	sort_bigger(int *a, int *b, int len)
 	sort_to_a(b + a_len, len - a_len);
 }
 
-//goes thru the stack to find the pivot number
 int	pivot_finder(int *stack, int a_len, int len)
 {
 	int	i;
@@ -62,10 +55,6 @@ int	pivot_finder(int *stack, int a_len, int len)
 	return (false);
 }
 
-/*
-counts the elements in the stack that are smaller than the picked pivot(PIVOT)
-if this count equal to 1/3 or 1/5 of the stack then it will be the pivot.
-*/
 int	calculate_position(int *stack, int pivot, int a_len, int len)
 {
 	int	smaller;
@@ -84,7 +73,6 @@ int	calculate_position(int *stack, int pivot, int a_len, int len)
 	return (false);
 }
 
-//RRA the min numbers to top
 void	sort_to_a(int *stack, int b_len)
 {
 	int	rra_min_from_bottom;
@@ -101,10 +89,6 @@ void	sort_to_a(int *stack, int b_len)
 	}
 }
 
-/*
-rotate B to get MAX on top -> PA -> reapeat with next biggest number
-if stack[i] = MAX, NEXT MAX or MIN, apply the correct operation, PA, SA or RA
-*/
 int	sort_b_to_a(int *stack, int b_len, int i, int j)
 {
 	static int		fd = 0;

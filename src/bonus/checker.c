@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:02:22 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/30 08:29:06 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:47:48 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-//read the operations from standard input, make and return a list out of it
 char	*read_stdin(char *operation_list)
 {
 	char			*operation;
@@ -53,7 +52,6 @@ char	*read_stdin(char *operation_list)
 	return (operation_list);
 }
 
-//check each operation if it's correct
 void	is_valid_operation(char *operation, char *operation_list)
 {
 	static char	*valid_operations[11] = {"sa\n", "ra\n", "rra\n", "pa\n",
@@ -76,12 +74,6 @@ void	is_valid_operation(char *operation, char *operation_list)
 	}
 }
 
-/*
-executing the operations one by one on the lists and changing the len
-of the arrays depending on if it's PA or PB
-pa - b index decrese a index incrase
-pb - a index decrese b index incrase
-*/
 void	execute_operations(char *operation_list, int *a, int *b, int a_len)
 {
 	char		*op;
@@ -111,7 +103,6 @@ void	execute_operations(char *operation_list, int *a, int *b, int a_len)
 	}
 }
 
-//get the next operation form the operation list
 char	*next_operation(char *operation_list)
 {
 	static char	oprs[4];

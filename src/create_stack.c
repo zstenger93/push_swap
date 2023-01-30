@@ -6,18 +6,12 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 11:45:06 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/29 19:46:40 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:46:53 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/*
-first loop goes thru the arguments one by one
-second loop goes thru each character of the current argument
-convert it with atoi and assign it to the current element of the stack
-give a pointer to the start of the string 
-*/
 void	create_stack(int len, int *stack_a, char **argv)
 {
 	int	i;
@@ -73,7 +67,6 @@ void	speed_is_life(int *a, int *b, int len)
 		sort_bigger(a, b, len);
 }
 
-//are there smaller numbers than the pivot?
 int	is_pivot_here(int *stack, int a_len, int pivot)
 {
 	int	i;

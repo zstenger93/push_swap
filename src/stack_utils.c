@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:16:49 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/29 10:11:18 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:47:32 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int	get_biggest_number(int *stack, int len)
 	return (max);
 }
 
-//if the 1st number == max then set next max to the second element
 int	get_next_biggest_number(int *stack, int len)
 {
 	int	i;

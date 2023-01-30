@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:58 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/23 11:32:38 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:47:24 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	ra_or_rra(int *stack, int len, int max)
 	}
 }
 
-//shift up, the first element becomes the last
 void	ra_or_rb(int *stack, int len)
 {
 	int	temp;
@@ -46,7 +45,6 @@ void	ra_or_rb(int *stack, int len)
 	stack[i - 1] = temp;
 }
 
-//shift down, last element becomes the first
 void	rra_or_rrb(int *stack, int len)
 {
 	int	temp;
