@@ -1,6 +1,8 @@
 <h1 align="center">
+	<p>
 	📖 PUSH_SWAP
-	<img src="https://badge42.vercel.app/api/v2/cl9sfj1oy00110fjrw3eky83q/stats?cursusId=21&coalitionId=158">
+	</p>
+	<img src="https://badge42.vercel.app/api/v2/cl9sfj1oy00110fjrw3eky83q/project/2918940">
 </h1>
 <img src="https://github.com/zstenger93/push_swap/blob/master/visualizer.png">
 <p align="center">
