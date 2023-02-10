@@ -6,7 +6,7 @@
 /*   By: zstenger <zstenger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:15:21 by zstenger          #+#    #+#             */
-/*   Updated: 2023/01/29 11:00:02 by zstenger         ###   ########.fr       */
+/*   Updated: 2023/02/10 16:47:41 by zstenger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct s_calculation
 {
